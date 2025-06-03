@@ -19,14 +19,14 @@ export function UserMessage({ content }: UserMessageProps) {
     const profile = useStore(profileStore);
 
     return (
-      <div className="overflow-hidden flex flex-col gap-3 items-center ">
+      <div className="overflow-hidden flex flex-col gap-2 items-center ">
         <div className="flex flex-row items-start justify-center overflow-hidden shrink-0 self-start">
           {profile?.avatar || profile?.username ? (
-            <div className="flex items-end gap-2">
+            <div className="flex items-end gap-1.5">
               <img
                 src={profile.avatar}
                 alt={profile?.username || 'User'}
-                className="w-[25px] h-[25px] object-cover rounded-full"
+                className="w-[1.375rem] h-[1.375rem] object-cover rounded-full"
                 loading="eager"
                 decoding="sync"
               />
@@ -35,10 +35,10 @@ export function UserMessage({ content }: UserMessageProps) {
               </span>
             </div>
           ) : (
-            <div className="i-ph:user-fill text-accent-500 text-2xl" />
+            <div className="i-ph:user-fill text-accent-500 text-xl" />
           )}
         </div>
-        <div className="flex flex-col gap-4 bg-accent-500/10 backdrop-blur-sm p-3 py-3 w-auto rounded-lg mr-auto">
+        <div className="flex flex-col gap-3 bg-accent-500/10 backdrop-blur-sm p-2.5 w-auto rounded-lg mr-auto">
           {textContent && <Markdown html>{textContent}</Markdown>}
           {images.map((item, index) => (
             <img
@@ -46,7 +46,7 @@ export function UserMessage({ content }: UserMessageProps) {
               src={item.image}
               alt={`Image ${index + 1}`}
               className="max-w-full h-auto rounded-lg"
-              style={{ maxHeight: '512px', objectFit: 'contain' }}
+              style={{ maxHeight: '384px', objectFit: 'contain' }}
             />
           ))}
         </div>

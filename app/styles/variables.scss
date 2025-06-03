@@ -221,7 +221,7 @@
  */
 :root {
   --header-height: 3.375rem;
-  --chat-max-width: 33rem;
+  --chat-max-width: 30rem;
   /* Primarily for desktop layout, influences workbench width */
   --chat-min-width: 33.3125rem;
   --workbench-width: min(calc(100% - var(--chat-min-width)), 158.5rem);
