@@ -148,7 +148,7 @@ const NotificationsTab = () => {
               'transition-all duration-200',
             )}
           >
-            <span className="i-ph:git-branch text-lg" />
+            <span className="i-ph:git-branch text-base" />
             View Changes
           </button>
         </div>
@@ -170,7 +170,7 @@ const NotificationsTab = () => {
   ];
 
   return (
-    <div className="flex h-full flex-col gap-6">
+    <div className="flex h-full flex-col gap-4">
       <div className="flex items-center justify-between">
         <DropdownMenu.Root>
           <DropdownMenu.Trigger asChild>
@@ -186,17 +186,17 @@ const NotificationsTab = () => {
               )}
             >
               <span
-                className={classNames('text-lg', filterOptions.find((opt) => opt.id === filter)?.icon || 'i-ph:funnel')}
+                className={classNames('text-base', filterOptions.find((opt) => opt.id === filter)?.icon || 'i-ph:funnel')}
                 style={{ color: filterOptions.find((opt) => opt.id === filter)?.color }}
               />
               {filterOptions.find((opt) => opt.id === filter)?.label || 'Filter Notifications'}
-              <span className="i-ph:caret-down text-lg text-gray-500 dark:text-gray-400" />
+              <span className="i-ph:caret-down text-base text-gray-500 dark:text-gray-400" />
             </button>
           </DropdownMenu.Trigger>
 
           <DropdownMenu.Portal>
             <DropdownMenu.Content
-              className="min-w-[200px] bg-white dark:bg-[#0A0A0A] rounded-lg shadow-lg py-1 z-[250] animate-in fade-in-0 zoom-in-95 border border-[#E5E5E5] dark:border-[#1A1A1A]"
+              className="w-[12.5rem] max-w-[calc(100vw-2rem)] bg-white dark:bg-[#0A0A0A] rounded-lg shadow-lg py-1 z-[250] animate-in fade-in-0 zoom-in-95 border border-[#E5E5E5] dark:border-[#1A1A1A]"
               sideOffset={5}
               align="start"
               side="bottom"
@@ -204,12 +204,12 @@ const NotificationsTab = () => {
               {filterOptions.map((option) => (
                 <DropdownMenu.Item
                   key={option.id}
-                  className="group flex items-center px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 cursor-pointer transition-colors"
+                  className="group flex items-center px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 cursor-pointer transition-colors"
                   onClick={() => handleFilterChange(option.id)}
                 >
-                  <div className="mr-3 flex h-5 w-5 items-center justify-center">
+                  <div className="mr-2 flex h-4 w-4 items-center justify-center">
                     <div
-                      className={classNames(option.icon, 'text-lg group-hover:text-purple-500 transition-colors')}
+                      className={classNames(option.icon, 'text-base group-hover:text-purple-500 transition-colors')}
                       style={{ color: option.color }}
                     />
                   </div>
@@ -232,7 +232,7 @@ const NotificationsTab = () => {
             'transition-all duration-200',
           )}
         >
-          <span className="i-ph:trash text-lg text-gray-500 dark:text-gray-400 group-hover:text-purple-500 transition-colors" />
+          <span className="i-ph:trash text-base text-gray-500 dark:text-gray-400 group-hover:text-purple-500 transition-colors" />
           Clear All
         </button>
       </div>
@@ -243,13 +243,13 @@ const NotificationsTab = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className={classNames(
-              'flex flex-col items-center justify-center gap-4',
-              'rounded-lg p-8 text-center',
+              'flex flex-col items-center justify-center gap-3',
+              'rounded-lg p-6 text-center',
               'bg-[#FAFAFA] dark:bg-[#0A0A0A]',
               'border border-[#E5E5E5] dark:border-[#1A1A1A]',
             )}
           >
-            <span className="i-ph:bell-slash text-4xl text-gray-400 dark:text-gray-600" />
+            <span className="i-ph:bell-slash text-2xl text-gray-400 dark:text-gray-600" />
             <div className="flex flex-col gap-1">
               <h3 className="text-sm font-medium text-gray-900 dark:text-white">No Notifications</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">You're all caught up!</p>
@@ -264,8 +264,8 @@ const NotificationsTab = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className={classNames(
-                  'flex flex-col gap-2',
-                  'rounded-lg p-4',
+                  'flex flex-col gap-1.5',
+                  'rounded-lg p-3',
                   'bg-[#FAFAFA] dark:bg-[#0A0A0A]',
                   'border border-[#E5E5E5] dark:border-[#1A1A1A]',
                   style.bg,
@@ -274,7 +274,7 @@ const NotificationsTab = () => {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-3">
-                    <span className={classNames('text-lg', style.icon, style.color)} />
+                    <span className={classNames('text-base', style.icon, style.color)} />
                     <div className="flex flex-col gap-1">
                       <h3 className="text-sm font-medium text-gray-900 dark:text-white">{log.message}</h3>
                       {log.details && renderNotificationDetails(log.details as NotificationDetails)}

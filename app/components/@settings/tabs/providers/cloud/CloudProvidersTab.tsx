@@ -131,32 +131,32 @@ const CloudProvidersTab = () => {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <motion.div
         className="space-y-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center justify-between gap-4 mt-8 mb-4">
+        <div className="flex items-center justify-between gap-4 mt-6 mb-3">
           <div className="flex items-center gap-2">
             <div
               className={classNames(
-                'w-8 h-8 flex items-center justify-center rounded-lg',
+                'w-7 h-7 flex items-center justify-center rounded-lg',
                 'bg-bolt-elements-background-depth-3',
                 'text-purple-500',
               )}
             >
-              <TbCloudComputing className="w-5 h-5" />
+              <TbCloudComputing className="w-4 h-4" />
             </div>
             <div>
-              <h4 className="text-md font-medium text-bolt-elements-textPrimary">Cloud Providers</h4>
-              <p className="text-sm text-bolt-elements-textSecondary">Connect to cloud-based AI models and services</p>
+              <h4 className="text-sm font-medium text-bolt-elements-textPrimary">Cloud Providers</h4>
+              <p className="text-xs text-bolt-elements-textSecondary">Connect to cloud-based AI models and services</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-bolt-elements-textSecondary">Enable All Cloud</span>
+            <span className="text-xs text-bolt-elements-textSecondary">Enable All Cloud</span>
             <Switch checked={categoryEnabled} onCheckedChange={handleToggleCategory} />
           </div>
         </div>
@@ -193,7 +193,7 @@ const CloudProvidersTab = () => {
               <div className="flex items-start gap-4 p-4">
                 <motion.div
                   className={classNames(
-                    'w-10 h-10 flex items-center justify-center rounded-xl',
+                    'w-9 h-9 flex items-center justify-center rounded-xl',
                     'bg-bolt-elements-background-depth-3 group-hover:bg-bolt-elements-background-depth-4',
                     'transition-all duration-200',
                     provider.settings.enabled ? 'text-purple-500' : 'text-bolt-elements-textSecondary',
@@ -201,7 +201,7 @@ const CloudProvidersTab = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <div className={classNames('w-6 h-6', 'transition-transform duration-200', 'group-hover:rotate-12')}>
+                  <div className={classNames('w-5 h-5', 'transition-transform duration-200', 'group-hover:rotate-12')}>
                     {React.createElement(PROVIDER_ICONS[provider.name as ProviderName] || BsRobot, {
                       className: 'w-full h-full',
                       'aria-label': `${provider.name} logo`,

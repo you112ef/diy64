@@ -3,7 +3,8 @@
 
   /* Example media query for smaller screens (adjust breakpoint and width as needed) */
   @media (max-width: 768px) {
-    width: 85vw; /* Or a different value like 90%, 280px, etc. */
+    width: 80vw;
+    max-width: 18.75rem; /* 300px */
   }
 
   /* Ensure it doesn't get too wide on very large screens if that's a concern */

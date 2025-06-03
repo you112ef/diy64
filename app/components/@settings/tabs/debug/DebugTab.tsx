@@ -181,12 +181,12 @@ const DependencySection = ({
       >
         <div className="flex items-center gap-3">
           <div className="i-ph:package text-bolt-elements-textSecondary w-4 h-4" />
-          <span className="text-base text-bolt-elements-textPrimary">
+          <span className="text-sm text-bolt-elements-textPrimary">
             {title} Dependencies ({deps.length})
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-bolt-elements-textSecondary">{isOpen ? 'Hide' : 'Show'}</span>
+          <span className="text-xs text-bolt-elements-textSecondary">{isOpen ? 'Hide' : 'Show'}</span>
           <div
             className={classNames(
               'i-ph:caret-down w-4 h-4 transform transition-transform duration-200 text-bolt-elements-textSecondary',
@@ -198,13 +198,13 @@ const DependencySection = ({
       <CollapsibleContent>
         <ScrollArea
           className={classNames(
-            'h-[200px] w-full',
+            'h-[180px] w-full',
             'bg-white dark:bg-[#0A0A0A]',
             'border-b border-[#E5E5E5] dark:border-[#1A1A1A]',
             'last:rounded-b-lg last:border-b-0',
           )}
         >
-          <div className="space-y-2 p-4">
+          <div className="space-y-2 p-3">
             {deps.map((dep) => (
               <div key={dep.name} className="flex items-center justify-between text-sm">
                 <span className="text-bolt-elements-textPrimary">{dep.name}</span>
@@ -1251,7 +1251,7 @@ export default function DebugTab() {
         <Dialog showCloseButton>
           <div className="p-6">
             <DialogTitle className="flex items-center gap-2">
-              <div className="i-ph:download w-5 h-5" />
+              <div className="i-ph:download w-4 h-4" />
               Export Debug Information
             </DialogTitle>
 
@@ -1261,7 +1261,7 @@ export default function DebugTab() {
                   key={format.id}
                   onClick={() => handleFormatClick(format.handler)}
                   className={classNames(
-                    'flex items-center gap-3 px-4 py-3 text-sm rounded-lg transition-colors w-full text-left',
+                    'flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors w-full text-left',
                     'bg-white dark:bg-[#0A0A0A]',
                     'border border-[#E5E5E5] dark:border-[#1A1A1A]',
                     'hover:bg-purple-50 dark:hover:bg-[#1a1a1a]',
@@ -1269,7 +1269,7 @@ export default function DebugTab() {
                     'text-bolt-elements-textPrimary',
                   )}
                 >
-                  <div className={classNames(format.icon, 'w-5 h-5')} />
+                  <div className={classNames(format.icon, 'w-4 h-4')} />
                   <div>
                     <div className="font-medium">{format.label}</div>
                     <div className="text-xs text-bolt-elements-textSecondary mt-0.5">
@@ -1332,18 +1332,18 @@ export default function DebugTab() {
   const status = getOllamaStatus() as StatusResult;
 
   return (
-    <div className="flex flex-col gap-6 max-w-7xl mx-auto p-4">
+    <div className="flex flex-col gap-4 max-w-7xl mx-auto p-4">
       {/* Quick Stats Banner */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* Errors Card */}
-        <div className="p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[180px] flex flex-col">
+        <div className="p-3 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[150px] flex flex-col">
           <div className="flex items-center gap-2">
             <div className="i-ph:warning-octagon text-purple-500 w-4 h-4" />
             <div className="text-sm text-bolt-elements-textSecondary">Errors</div>
           </div>
           <div className="flex items-center gap-2 mt-2">
             <span
-              className={classNames('text-2xl font-semibold', errorLogs.length > 0 ? 'text-red-500' : 'text-green-500')}
+              className={classNames('text-xl font-semibold', errorLogs.length > 0 ? 'text-red-500' : 'text-green-500')}
             >
               {errorLogs.length}
             </span>
@@ -1360,7 +1360,7 @@ export default function DebugTab() {
         </div>
 
         {/* Memory Usage Card */}
-        <div className="p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[180px] flex flex-col">
+        <div className="p-3 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[150px] flex flex-col">
           <div className="flex items-center gap-2">
             <div className="i-ph:cpu text-purple-500 w-4 h-4" />
             <div className="text-sm text-bolt-elements-textSecondary">Memory Usage</div>
@@ -1368,7 +1368,7 @@ export default function DebugTab() {
           <div className="flex items-center gap-2 mt-2">
             <span
               className={classNames(
-                'text-2xl font-semibold',
+                'text-xl font-semibold',
                 (systemInfo?.memory?.percentage ?? 0) > 80
                   ? 'text-red-500'
                   : (systemInfo?.memory?.percentage ?? 0) > 60
@@ -1397,7 +1397,7 @@ export default function DebugTab() {
         </div>
 
         {/* Page Load Time Card */}
-        <div className="p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[180px] flex flex-col">
+        <div className="p-3 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[150px] flex flex-col">
           <div className="flex items-center gap-2">
             <div className="i-ph:timer text-purple-500 w-4 h-4" />
             <div className="text-sm text-bolt-elements-textSecondary">Page Load Time</div>
@@ -1405,7 +1405,7 @@ export default function DebugTab() {
           <div className="flex items-center gap-2 mt-2">
             <span
               className={classNames(
-                'text-2xl font-semibold',
+                'text-xl font-semibold',
                 (systemInfo?.performance.timing.loadTime ?? 0) > 2000
                   ? 'text-red-500'
                   : (systemInfo?.performance.timing.loadTime ?? 0) > 1000
@@ -1423,7 +1423,7 @@ export default function DebugTab() {
         </div>
 
         {/* Network Speed Card */}
-        <div className="p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[180px] flex flex-col">
+        <div className="p-3 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[150px] flex flex-col">
           <div className="flex items-center gap-2">
             <div className="i-ph:wifi-high text-purple-500 w-4 h-4" />
             <div className="text-sm text-bolt-elements-textSecondary">Network Speed</div>
@@ -1431,7 +1431,7 @@ export default function DebugTab() {
           <div className="flex items-center gap-2 mt-2">
             <span
               className={classNames(
-                'text-2xl font-semibold',
+                'text-xl font-semibold',
                 (systemInfo?.network.downlink ?? 0) < 5
                   ? 'text-red-500'
                   : (systemInfo?.network.downlink ?? 0) < 10
@@ -1449,10 +1449,10 @@ export default function DebugTab() {
         </div>
 
         {/* Ollama Service Card - Now spans all 4 columns */}
-        <div className="md:col-span-4 p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[260px] flex flex-col">
+        <div className="md:col-span-4 p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A] hover:border-purple-500/30 transition-all duration-200 h-[230px] flex flex-col">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="i-ph:robot text-purple-500 w-5 h-5" />
+              <div className="i-ph:robot text-purple-500 w-4 h-4" />
               <div>
                 <div className="text-base font-medium text-bolt-elements-textPrimary">Ollama Service</div>
                 <div className="text-xs text-bolt-elements-textSecondary mt-0.5">{status.message}</div>
@@ -1494,7 +1494,7 @@ export default function DebugTab() {
                     {ollamaStatus.models.map((model) => (
                       <div
                         key={model.name}
-                        className="text-sm bg-bolt-elements-background-depth-3 hover:bg-bolt-elements-background-depth-4 rounded-lg px-4 py-3 flex items-center justify-between transition-colors group"
+                        className="text-sm bg-bolt-elements-background-depth-3 hover:bg-bolt-elements-background-depth-4 rounded-lg px-3 py-2 flex items-center justify-between transition-colors group"
                       >
                         <div className="flex items-center gap-2 text-bolt-elements-textSecondary">
                           <div className="i-ph:cube w-4 h-4 text-purple-500/70 group-hover:text-purple-500 transition-colors" />
@@ -1512,7 +1512,7 @@ export default function DebugTab() {
               <div className="flex-1 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-3 max-w-[280px] text-center">
                   <div
-                    className={classNames('w-12 h-12', {
+                    className={classNames('w-10 h-10', {
                       'i-ph:warning-circle text-red-500/80':
                         status.status === 'Not Running' || status.status === 'Disabled',
                       'i-ph:cube-duotone text-purple-500/80': status.status === 'Running',
@@ -1532,7 +1532,7 @@ export default function DebugTab() {
           onClick={getSystemInfo}
           disabled={loading.systemInfo}
           className={classNames(
-            'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+            'flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors',
             'bg-white dark:bg-[#0A0A0A]',
             'border border-[#E5E5E5] dark:border-[#1A1A1A]',
             'hover:bg-purple-50 dark:hover:bg-[#1a1a1a]',
@@ -1553,7 +1553,7 @@ export default function DebugTab() {
           onClick={handleLogPerformance}
           disabled={loading.performance}
           className={classNames(
-            'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+            'flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors',
             'bg-white dark:bg-[#0A0A0A]',
             'border border-[#E5E5E5] dark:border-[#1A1A1A]',
             'hover:bg-purple-50 dark:hover:bg-[#1a1a1a]',
@@ -1574,7 +1574,7 @@ export default function DebugTab() {
           onClick={checkErrors}
           disabled={loading.errors}
           className={classNames(
-            'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+            'flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors',
             'bg-white dark:bg-[#0A0A0A]',
             'border border-[#E5E5E5] dark:border-[#1A1A1A]',
             'hover:bg-purple-50 dark:hover:bg-[#1a1a1a]',
@@ -1595,7 +1595,7 @@ export default function DebugTab() {
           onClick={getWebAppInfo}
           disabled={loading.webAppInfo}
           className={classNames(
-            'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+            'flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors',
             'bg-white dark:bg-[#0A0A0A]',
             'border border-[#E5E5E5] dark:border-[#1A1A1A]',
             'hover:bg-purple-50 dark:hover:bg-[#1a1a1a]',
@@ -1622,9 +1622,9 @@ export default function DebugTab() {
         className="w-full"
       >
         <CollapsibleTrigger className="w-full">
-          <div className="flex items-center justify-between p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             <div className="flex items-center gap-3">
-              <div className="i-ph:cpu text-purple-500 w-5 h-5" />
+              <div className="i-ph:cpu text-purple-500 w-4 h-4" />
               <h3 className="text-base font-medium text-bolt-elements-textPrimary">System Information</h3>
             </div>
             <div
@@ -1637,43 +1637,43 @@ export default function DebugTab() {
         </CollapsibleTrigger>
 
         <CollapsibleContent>
-          <div className="p-6 mt-2 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="p-4 mt-1.5 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             {systemInfo ? (
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:desktop text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">OS: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.os}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:device-mobile text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Platform: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.platform}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:circuitry text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Architecture: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.arch}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:cpu text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">CPU Cores: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.cpus}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:graph text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Node Version: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.node}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:wifi-high text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Network Type: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.network.type} ({systemInfo.network.effectiveType})
                     </span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:gauge text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Network Speed: </span>
                     <span className="text-bolt-elements-textPrimary">
@@ -1681,7 +1681,7 @@ export default function DebugTab() {
                     </span>
                   </div>
                   {systemInfo.battery && (
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:battery-charging text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Battery: </span>
                       <span className="text-bolt-elements-textPrimary">
@@ -1689,7 +1689,7 @@ export default function DebugTab() {
                       </span>
                     </div>
                   )}
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:hard-drive text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Storage: </span>
                     <span className="text-bolt-elements-textPrimary">
@@ -1699,38 +1699,38 @@ export default function DebugTab() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:database text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Memory Usage: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.memory.used} / {systemInfo.memory.total} ({systemInfo.memory.percentage}%)
                     </span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:browser text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Browser: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.browser.name} {systemInfo.browser.version}
                     </span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:monitor text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Screen: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.screen.width}x{systemInfo.screen.height} ({systemInfo.screen.pixelRatio}x)
                     </span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:clock text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Timezone: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.time.timezone}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:translate text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Language: </span>
                     <span className="text-bolt-elements-textPrimary">{systemInfo.browser.language}</span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:chart-pie text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">JS Heap: </span>
                     <span className="text-bolt-elements-textPrimary">
@@ -1739,14 +1739,14 @@ export default function DebugTab() {
                       {systemInfo.performance.memory.usagePercentage.toFixed(1)}%)
                     </span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:timer text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">Page Load: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {(systemInfo.performance.timing.loadTime / 1000).toFixed(2)}s
                     </span>
                   </div>
-                  <div className="text-sm flex items-center gap-2">
+                  <div className="text-sm flex items-center gap-1.5">
                     <div className="i-ph:code text-bolt-elements-textSecondary w-4 h-4" />
                     <span className="text-bolt-elements-textSecondary">DOM Ready: </span>
                     <span className="text-bolt-elements-textPrimary">
@@ -1769,9 +1769,9 @@ export default function DebugTab() {
         className="w-full"
       >
         <CollapsibleTrigger className="w-full">
-          <div className="flex items-center justify-between p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             <div className="flex items-center gap-3">
-              <div className="i-ph:chart-line text-purple-500 w-5 h-5" />
+              <div className="i-ph:chart-line text-purple-500 w-4 h-4" />
               <h3 className="text-base font-medium text-bolt-elements-textPrimary">Performance Metrics</h3>
             </div>
             <div
@@ -1784,29 +1784,29 @@ export default function DebugTab() {
         </CollapsibleTrigger>
 
         <CollapsibleContent>
-          <div className="p-6 mt-2 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="p-4 mt-1.5 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             {systemInfo && (
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">Page Load Time: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {(systemInfo.performance.timing.loadTime / 1000).toFixed(2)}s
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">DOM Ready Time: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {(systemInfo.performance.timing.domReadyTime / 1000).toFixed(2)}s
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">Request Time: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {(systemInfo.performance.timing.requestTime / 1000).toFixed(2)}s
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">Redirect Time: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {(systemInfo.performance.timing.redirectTime / 1000).toFixed(2)}s
@@ -1814,20 +1814,20 @@ export default function DebugTab() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">JS Heap Usage: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {(systemInfo.performance.memory.usedJSHeapSize / (1024 * 1024)).toFixed(1)}MB /{' '}
                       {(systemInfo.performance.memory.totalJSHeapSize / (1024 * 1024)).toFixed(1)}MB
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">Heap Utilization: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.performance.memory.usagePercentage.toFixed(1)}%
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">Navigation Type: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.performance.navigation.type === 0
@@ -1839,7 +1839,7 @@ export default function DebugTab() {
                             : 'Other'}
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm flex items-center gap-1.5">
                     <span className="text-bolt-elements-textSecondary">Redirects: </span>
                     <span className="text-bolt-elements-textPrimary">
                       {systemInfo.performance.navigation.redirectCount}
@@ -1859,9 +1859,9 @@ export default function DebugTab() {
         className="w-full"
       >
         <CollapsibleTrigger className="w-full">
-          <div className="flex items-center justify-between p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             <div className="flex items-center gap-3">
-              <div className="i-ph:info text-blue-500 w-5 h-5" />
+              <div className="i-ph:info text-blue-500 w-4 h-4" />
               <h3 className="text-base font-medium text-bolt-elements-textPrimary">WebApp Information</h3>
               {loading.webAppInfo && <span className="loading loading-spinner loading-sm" />}
             </div>
@@ -1875,7 +1875,7 @@ export default function DebugTab() {
         </CollapsibleTrigger>
 
         <CollapsibleContent>
-          <div className="p-6 mt-2 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="p-4 mt-1.5 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             {loading.webAppInfo ? (
               <div className="flex items-center justify-center p-8">
                 <span className="loading loading-spinner loading-lg" />
@@ -1896,27 +1896,27 @@ export default function DebugTab() {
                 <div>
                   <h3 className="mb-4 text-base font-medium text-bolt-elements-textPrimary">Basic Information</h3>
                   <div className="space-y-3">
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:app-window text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Name:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.name}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:tag text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Version:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.version}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:certificate text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">License:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.license}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:cloud text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Environment:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.environment}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:graph text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Node Version:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.runtimeInfo.nodeVersion}</span>
@@ -1927,22 +1927,22 @@ export default function DebugTab() {
                 <div>
                   <h3 className="mb-4 text-base font-medium text-bolt-elements-textPrimary">Git Information</h3>
                   <div className="space-y-3">
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:git-branch text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Branch:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.gitInfo.local.branch}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:git-commit text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Commit:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.gitInfo.local.commitHash}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:user text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Author:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.gitInfo.local.author}</span>
                     </div>
-                    <div className="text-sm flex items-center gap-2">
+                    <div className="text-sm flex items-center gap-1.5">
                       <div className="i-ph:clock text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Commit Time:</span>
                       <span className="text-bolt-elements-textPrimary">{webAppInfo.gitInfo.local.commitTime}</span>
@@ -1951,7 +1951,7 @@ export default function DebugTab() {
                     {webAppInfo.gitInfo.github && (
                       <>
                         <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                          <div className="text-sm flex items-center gap-2">
+                          <div className="text-sm flex items-center gap-1.5">
                             <div className="i-ph:git-fork text-bolt-elements-textSecondary w-4 h-4" />
                             <span className="text-bolt-elements-textSecondary">Repository:</span>
                             <span className="text-bolt-elements-textPrimary">
@@ -1984,7 +1984,7 @@ export default function DebugTab() {
 
                         {webAppInfo.gitInfo.github.upstream && (
                           <div className="mt-2">
-                            <div className="text-sm flex items-center gap-2">
+                            <div className="text-sm flex items-center gap-1.5">
                               <div className="i-ph:git-fork text-bolt-elements-textSecondary w-4 h-4" />
                               <span className="text-bolt-elements-textSecondary">Upstream:</span>
                               <span className="text-bolt-elements-textPrimary">
@@ -2037,9 +2037,9 @@ export default function DebugTab() {
         className="w-full"
       >
         <CollapsibleTrigger className="w-full">
-          <div className="flex items-center justify-between p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             <div className="flex items-center gap-3">
-              <div className="i-ph:warning text-red-500 w-5 h-5" />
+              <div className="i-ph:warning text-red-500 w-4 h-4" />
               <h3 className="text-base font-medium text-bolt-elements-textPrimary">Error Check</h3>
               {errorLogs.length > 0 && (
                 <Badge variant="destructive" className="ml-2">
@@ -2057,7 +2057,7 @@ export default function DebugTab() {
         </CollapsibleTrigger>
 
         <CollapsibleContent>
-          <div className="p-6 mt-2 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
+          <div className="p-4 mt-1.5 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]">
             <ScrollArea className="h-[300px]">
               <div className="space-y-4">
                 <div className="text-sm text-bolt-elements-textSecondary">

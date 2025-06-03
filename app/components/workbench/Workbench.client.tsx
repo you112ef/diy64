@@ -112,7 +112,7 @@ const FileModifiedDropdown = memo(
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Popover.Panel className="absolute right-0 z-20 mt-2 w-80 origin-top-right rounded-xl bg-bolt-elements-background-depth-2 shadow-xl border border-bolt-elements-borderColor">
+                <Popover.Panel className="absolute right-0 z-20 mt-2 w-80 max-w-[calc(100vw-2rem)] origin-top-right rounded-xl bg-bolt-elements-background-depth-2 shadow-xl border border-bolt-elements-borderColor">
                   <div className="p-2">
                     <div className="relative mx-2 mb-2">
                       <input
@@ -416,7 +416,7 @@ export const Workbench = memo(
                         </DropdownMenu.Trigger>
                         <DropdownMenu.Content
                           className={classNames(
-                            'min-w-[240px] z-[250]',
+                            'w-[15rem] max-w-[calc(100vw-2rem)] z-[250]',
                             'bg-white dark:bg-[#141414]',
                             'rounded-lg shadow-lg',
                             'border border-gray-200/50 dark:border-gray-800/50',

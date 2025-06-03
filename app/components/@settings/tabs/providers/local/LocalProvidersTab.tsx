@@ -303,7 +303,7 @@ export default function LocalProvidersTab() {
 
   // Update model details display
   const ModelDetails = ({ model }: { model: OllamaModel }) => (
-    <div className="flex items-center gap-3 text-xs text-bolt-elements-textSecondary">
+    <div className="flex items-center gap-2 text-xs text-bolt-elements-textSecondary">
       <div className="flex items-center gap-1">
         <div className="i-ph:code text-purple-500" />
         <span>{model.digest.substring(0, 7)}</span>
@@ -338,7 +338,7 @@ export default function LocalProvidersTab() {
         onClick={onUpdate}
         disabled={model.status === 'updating'}
         className={classNames(
-          'rounded-lg p-2',
+          'rounded-lg p-1.5',
           'bg-purple-500/10 text-purple-500',
           'hover:bg-purple-500/20',
           'transition-all duration-200',
@@ -354,14 +354,14 @@ export default function LocalProvidersTab() {
             <span className="text-sm">Updating...</span>
           </div>
         ) : (
-          <div className="i-ph:arrows-clockwise text-lg" />
+          <div className="i-ph:arrows-clockwise text-base" />
         )}
       </motion.button>
       <motion.button
         onClick={onDelete}
         disabled={model.status === 'updating'}
         className={classNames(
-          'rounded-lg p-2',
+          'rounded-lg p-1.5',
           'bg-red-500/10 text-red-500',
           'hover:bg-red-500/20',
           'transition-all duration-200',
@@ -371,7 +371,7 @@ export default function LocalProvidersTab() {
         whileTap={{ scale: 0.95 }}
         title="Delete model"
       >
-        <div className="i-ph:trash text-lg" />
+        <div className="i-ph:trash text-base" />
       </motion.button>
     </div>
   );
@@ -393,27 +393,27 @@ export default function LocalProvidersTab() {
         transition={{ duration: 0.3 }}
       >
         {/* Header section */}
-        <div className="flex items-center justify-between gap-4 border-b border-bolt-elements-borderColor pb-4">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-4 border-b border-bolt-elements-borderColor pb-3">
+          <div className="flex items-center gap-2">
             <motion.div
               className={classNames(
-                'w-10 h-10 flex items-center justify-center rounded-xl',
+                'w-9 h-9 flex items-center justify-center rounded-xl',
                 'bg-purple-500/10 text-purple-500',
               )}
               whileHover={{ scale: 1.05 }}
             >
-              <BiChip className="w-6 h-6" />
+              <BiChip className="w-5 h-5" />
             </motion.div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-semibold text-bolt-elements-textPrimary">Local AI Models</h2>
+                <h2 className="text-base font-semibold text-bolt-elements-textPrimary">Local AI Models</h2>
               </div>
-              <p className="text-sm text-bolt-elements-textSecondary">Configure and manage your local AI providers</p>
+              <p className="text-xs text-bolt-elements-textSecondary">Configure and manage your local AI providers</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-bolt-elements-textSecondary">Enable All</span>
+            <span className="text-xs text-bolt-elements-textSecondary">Enable All</span>
             <Switch
               checked={categoryEnabled}
               onCheckedChange={handleToggleCategory}
@@ -431,7 +431,7 @@ export default function LocalProvidersTab() {
               className={classNames(
                 'bg-bolt-elements-background-depth-2 rounded-xl',
                 'hover:bg-bolt-elements-background-depth-3',
-                'transition-all duration-200 p-5',
+                'transition-all duration-200 p-4',
                 'relative overflow-hidden group',
               )}
               initial={{ opacity: 0, y: 20 }}
@@ -443,23 +443,23 @@ export default function LocalProvidersTab() {
                 <div className="flex items-start gap-4">
                   <motion.div
                     className={classNames(
-                      'w-12 h-12 flex items-center justify-center rounded-xl',
+                      'w-10 h-10 flex items-center justify-center rounded-xl',
                       'bg-bolt-elements-background-depth-3',
                       provider.settings.enabled ? 'text-purple-500' : 'text-bolt-elements-textSecondary',
                     )}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
                     {React.createElement(PROVIDER_ICONS[provider.name as ProviderName] || BsRobot, {
-                      className: 'w-7 h-7',
+                      className: 'w-6 h-6',
                       'aria-label': `${provider.name} icon`,
                     })}
                   </motion.div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="text-md font-semibold text-bolt-elements-textPrimary">{provider.name}</h3>
+                      <h3 className="text-sm font-semibold text-bolt-elements-textPrimary">{provider.name}</h3>
                       <span className="px-2 py-0.5 text-xs rounded-full bg-green-500/10 text-green-500">Local</span>
                     </div>
-                    <p className="text-sm text-bolt-elements-textSecondary mt-1">
+                    <p className="text-xs text-bolt-elements-textSecondary mt-1">
                       {PROVIDER_DESCRIPTIONS[provider.name as ProviderName]}
                     </p>
                   </div>
@@ -481,14 +481,14 @@ export default function LocalProvidersTab() {
                     className="mt-4"
                   >
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm text-bolt-elements-textSecondary">API Endpoint</label>
+                      <label className="text-xs text-bolt-elements-textSecondary">API Endpoint</label>
                       {editingProvider === provider.name ? (
                         <input
                           type="text"
                           defaultValue={provider.settings.baseUrl || OLLAMA_API_URL}
                           placeholder="Enter Ollama base URL"
                           className={classNames(
-                            'w-full px-3 py-2 rounded-lg text-sm',
+                            'w-full px-2.5 py-1.5 rounded-lg text-xs',
                             'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
                             'text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary',
                             'focus:outline-none focus:ring-2 focus:ring-purple-500/30',
@@ -508,14 +508,14 @@ export default function LocalProvidersTab() {
                         <div
                           onClick={() => setEditingProvider(provider.name)}
                           className={classNames(
-                            'w-full px-3 py-2 rounded-lg text-sm cursor-pointer',
+                            'w-full px-2.5 py-1.5 rounded-lg text-xs cursor-pointer',
                             'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
                             'hover:border-purple-500/30 hover:bg-bolt-elements-background-depth-4',
                             'transition-all duration-200',
                           )}
                         >
                           <div className="flex items-center gap-2 text-bolt-elements-textSecondary">
-                            <div className="i-ph:link text-sm" />
+                            <div className="i-ph:link text-xs" />
                             <span>{provider.settings.baseUrl || OLLAMA_API_URL}</span>
                           </div>
                         </div>
@@ -556,16 +556,16 @@ export default function LocalProvidersTab() {
                         ))}
                       </div>
                     ) : ollamaModels.length === 0 ? (
-                      <div className="text-center py-8 text-bolt-elements-textSecondary">
-                        <div className="i-ph:cube-transparent text-4xl mx-auto mb-2" />
-                        <p>No models installed yet</p>
-                        <p className="text-sm text-bolt-elements-textTertiary px-1">
+                      <div className="text-center py-6 text-bolt-elements-textSecondary">
+                        <div className="i-ph:cube-transparent text-2xl mx-auto mb-2" />
+                        <p className="text-xs">No models installed yet</p>
+                        <p className="text-xs text-bolt-elements-textTertiary px-1">
                           Browse models at{' '}
                           <a
                             href="https://ollama.com/library"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-purple-500 hover:underline inline-flex items-center gap-0.5 text-base font-medium"
+                            className="text-purple-500 hover:underline inline-flex items-center gap-0.5 text-sm font-medium"
                           >
                             ollama.com/library
                             <div className="i-ph:arrow-square-out text-xs" />
@@ -578,7 +578,7 @@ export default function LocalProvidersTab() {
                         <motion.div
                           key={model.name}
                           className={classNames(
-                            'p-4 rounded-xl',
+                            'p-3 rounded-xl',
                             'bg-bolt-elements-background-depth-3',
                             'hover:bg-bolt-elements-background-depth-4',
                             'transition-all duration-200',
@@ -639,7 +639,7 @@ export default function LocalProvidersTab() {
                   className={classNames(
                     'bg-bolt-elements-background-depth-2 rounded-xl',
                     'hover:bg-bolt-elements-background-depth-3',
-                    'transition-all duration-200 p-5',
+                    'transition-all duration-200 p-4',
                     'relative overflow-hidden group',
                   )}
                   initial={{ opacity: 0, y: 20 }}
@@ -652,20 +652,20 @@ export default function LocalProvidersTab() {
                     <div className="flex items-start gap-4">
                       <motion.div
                         className={classNames(
-                          'w-12 h-12 flex items-center justify-center rounded-xl',
+                          'w-10 h-10 flex items-center justify-center rounded-xl',
                           'bg-bolt-elements-background-depth-3',
                           provider.settings.enabled ? 'text-purple-500' : 'text-bolt-elements-textSecondary',
                         )}
                         whileHover={{ scale: 1.1, rotate: 5 }}
                       >
                         {React.createElement(PROVIDER_ICONS[provider.name as ProviderName] || BsRobot, {
-                          className: 'w-7 h-7',
+                          className: 'w-6 h-6',
                           'aria-label': `${provider.name} icon`,
                         })}
                       </motion.div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <h3 className="text-md font-semibold text-bolt-elements-textPrimary">{provider.name}</h3>
+                          <h3 className="text-sm font-semibold text-bolt-elements-textPrimary">{provider.name}</h3>
                           <div className="flex gap-1">
                             <span className="px-2 py-0.5 text-xs rounded-full bg-green-500/10 text-green-500">
                               Local
@@ -677,7 +677,7 @@ export default function LocalProvidersTab() {
                             )}
                           </div>
                         </div>
-                        <p className="text-sm text-bolt-elements-textSecondary mt-1">
+                        <p className="text-xs text-bolt-elements-textSecondary mt-1">
                           {PROVIDER_DESCRIPTIONS[provider.name as ProviderName]}
                         </p>
                       </div>
@@ -699,14 +699,14 @@ export default function LocalProvidersTab() {
                         className="mt-4"
                       >
                         <div className="flex flex-col gap-2">
-                          <label className="text-sm text-bolt-elements-textSecondary">API Endpoint</label>
+                          <label className="text-xs text-bolt-elements-textSecondary">API Endpoint</label>
                           {editingProvider === provider.name ? (
                             <input
                               type="text"
                               defaultValue={provider.settings.baseUrl}
                               placeholder={`Enter ${provider.name} base URL`}
                               className={classNames(
-                                'w-full px-3 py-2 rounded-lg text-sm',
+                                'w-full px-2.5 py-1.5 rounded-lg text-xs',
                                 'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
                                 'text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary',
                                 'focus:outline-none focus:ring-2 focus:ring-purple-500/30',
@@ -726,14 +726,14 @@ export default function LocalProvidersTab() {
                             <div
                               onClick={() => setEditingProvider(provider.name)}
                               className={classNames(
-                                'w-full px-3 py-2 rounded-lg text-sm cursor-pointer',
+                                'w-full px-2.5 py-1.5 rounded-lg text-xs cursor-pointer',
                                 'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
                                 'hover:border-purple-500/30 hover:bg-bolt-elements-background-depth-4',
                                 'transition-all duration-200',
                               )}
                             >
                               <div className="flex items-center gap-2 text-bolt-elements-textSecondary">
-                                <div className="i-ph:link text-sm" />
+                                <div className="i-ph:link text-xs" />
                                 <span>{provider.settings.baseUrl || 'Click to set base URL'}</span>
                               </div>
                             </div>

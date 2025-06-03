@@ -100,7 +100,7 @@ const AnimatedSwitch = ({ checked, onCheckedChange, id, label }: AnimatedSwitchP
         checked={checked}
         onCheckedChange={onCheckedChange}
         className={classNames(
-          'relative inline-flex h-6 w-11 items-center rounded-full',
+          'relative inline-flex h-5 w-9 items-center rounded-full',
           'transition-all duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]',
           'bg-gray-200 dark:bg-gray-700',
           'data-[state=checked]:bg-purple-500',
@@ -111,8 +111,8 @@ const AnimatedSwitch = ({ checked, onCheckedChange, id, label }: AnimatedSwitchP
       >
         <motion.span
           className={classNames(
-            'absolute left-[2px] top-[2px]',
-            'inline-block h-5 w-5 rounded-full',
+            'absolute left-[0.125rem] top-[0.125rem]',
+            'inline-block h-4 w-4 rounded-full',
             'bg-white shadow-lg',
             'transition-shadow duration-300',
             'group-hover:shadow-md group-active:shadow-sm',
@@ -126,7 +126,7 @@ const AnimatedSwitch = ({ checked, onCheckedChange, id, label }: AnimatedSwitchP
             duration: 0.2,
           }}
           animate={{
-            x: checked ? '1.25rem' : '0rem',
+            x: checked ? '1.125rem' : '0.125rem',
           }}
         >
           <motion.div
@@ -143,7 +143,7 @@ const AnimatedSwitch = ({ checked, onCheckedChange, id, label }: AnimatedSwitchP
       <div className="flex items-center gap-2">
         <label
           htmlFor={id}
-          className="text-sm text-gray-500 dark:text-gray-400 select-none cursor-pointer whitespace-nowrap w-[88px]"
+          className="text-sm text-gray-500 dark:text-gray-400 select-none cursor-pointer whitespace-nowrap w-[72px]"
         >
           {label}
         </label>
@@ -432,7 +432,7 @@ export const ControlPanel = ({ open, onClose }: ControlPanelProps) => {
           >
             <motion.div
               className={classNames(
-                'w-[1200px] h-[90vh]',
+                'w-[95vw] max-w-[1200px] h-[90vh]',
                 'bg-[#FAFAFA] dark:bg-[#0A0A0A]',
                 'rounded-2xl shadow-2xl',
                 'border border-[#E5E5E5] dark:border-[#1A1A1A]',
@@ -449,7 +449,7 @@ export const ControlPanel = ({ open, onClose }: ControlPanelProps) => {
               </div>
               <div className="relative z-10 flex flex-col h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
                   <div className="flex items-center space-x-4">
                     {(activeTab || showTabManagement) && (
                       <button
@@ -510,7 +510,7 @@ export const ControlPanel = ({ open, onClose }: ControlPanelProps) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="p-6"
+                    className="p-4"
                   >
                     {showTabManagement ? (
                       <TabManagement />

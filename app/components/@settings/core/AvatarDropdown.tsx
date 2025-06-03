@@ -22,7 +22,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <motion.button
-          className="w-10 h-10 rounded-full bg-transparent flex items-center justify-center focus:outline-none"
+          className="w-9 h-9 rounded-full bg-transparent flex items-center justify-center focus:outline-none"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -36,7 +36,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
             />
           ) : (
             <div className="w-full h-full rounded-full flex items-center justify-center bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-500">
-              <div className="i-ph:question w-6 h-6" />
+              <div className="i-ph:question w-5 h-5" />
             </div>
           )}
         </motion.button>
@@ -57,11 +57,11 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
         >
           <div
             className={classNames(
-              'px-4 py-3 flex items-center gap-3',
+              'px-3 py-2 flex items-center gap-2',
               'border-b border-gray-200/50 dark:border-gray-800/50',
             )}
           >
-            <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-white dark:bg-gray-800 shadow-sm">
+            <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-white dark:bg-gray-800 shadow-sm">
               {profile?.avatar ? (
                 <img
                   src={profile.avatar}
@@ -71,7 +71,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
                   decoding="sync"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500 font-medium text-lg">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500 font-medium text-base">
                   <span className="relative -top-0.5">?</span>
                 </div>
               )}
@@ -86,7 +86,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
 
           <DropdownMenu.Item
             className={classNames(
-              'flex items-center gap-2 px-4 py-2.5',
+              'flex items-center gap-1.5 px-3 py-2',
               'text-sm text-gray-700 dark:text-gray-200',
               'hover:bg-purple-50 dark:hover:bg-purple-500/10',
               'hover:text-purple-500 dark:hover:text-purple-400',
@@ -102,7 +102,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
 
           <DropdownMenu.Item
             className={classNames(
-              'flex items-center gap-2 px-4 py-2.5',
+              'flex items-center gap-1.5 px-3 py-2',
               'text-sm text-gray-700 dark:text-gray-200',
               'hover:bg-purple-50 dark:hover:bg-purple-500/10',
               'hover:text-purple-500 dark:hover:text-purple-400',
@@ -120,7 +120,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
 
           <DropdownMenu.Item
             className={classNames(
-              'flex items-center gap-2 px-4 py-2.5',
+              'flex items-center gap-1.5 px-3 py-2',
               'text-sm text-gray-700 dark:text-gray-200',
               'hover:bg-purple-50 dark:hover:bg-purple-500/10',
               'hover:text-purple-500 dark:hover:text-purple-400',
@@ -137,7 +137,7 @@ export const AvatarDropdown = ({ onSelectTab }: AvatarDropdownProps) => {
 
           <DropdownMenu.Item
             className={classNames(
-              'flex items-center gap-2 px-4 py-2.5',
+              'flex items-center gap-1.5 px-3 py-2',
               'text-sm text-gray-700 dark:text-gray-200',
               'hover:bg-purple-50 dark:hover:bg-purple-500/10',
               'hover:text-purple-500 dark:hover:text-purple-400',

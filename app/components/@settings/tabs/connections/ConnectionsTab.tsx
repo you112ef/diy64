@@ -24,7 +24,7 @@ export default function ConnectionsTab() {
   const [showDiagnostics, setShowDiagnostics] = useState(false);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Header */}
       <motion.div
         className="flex items-center justify-between gap-2"
@@ -33,8 +33,8 @@ export default function ConnectionsTab() {
         transition={{ delay: 0.1 }}
       >
         <div className="flex items-center gap-2">
-          <div className="i-ph:plugs-connected w-5 h-5 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
-          <h2 className="text-lg font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+          <div className="i-ph:plugs-connected w-4 h-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+          <h2 className="text-base font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
             Connection Settings
           </h2>
         </div>
@@ -56,7 +56,7 @@ export default function ConnectionsTab() {
           )}
         </Button>
       </motion.div>
-      <p className="text-sm text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary">
+      <p className="text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary">
         Manage your external service connections and integrations
       </p>
 
@@ -81,8 +81,8 @@ export default function ConnectionsTab() {
             )}
           >
             <div className="flex items-center gap-2">
-              <div className="i-ph:info w-5 h-5 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
-              <h3 className="text-base font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+            <div className="i-ph:info w-4 h-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+            <h3 className="text-sm font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
                 Environment Variables
               </h3>
             </div>
@@ -96,14 +96,14 @@ export default function ConnectionsTab() {
 
           {isEnvVarsExpanded && (
             <div className="mt-4">
-              <p className="text-sm text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-2">
+            <p className="text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-1.5">
                 You can configure connections using environment variables in your{' '}
                 <code className="px-1 py-0.5 bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 rounded">
                   .env.local
                 </code>{' '}
                 file:
               </p>
-              <div className="bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 p-3 rounded-md text-xs font-mono overflow-x-auto">
+            <div className="bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 p-2 rounded-md text-xs font-mono overflow-x-auto">
                 <div className="text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary">
                   # GitHub Authentication
                 </div>
@@ -162,12 +162,12 @@ export default function ConnectionsTab() {
       </div>
 
       {/* Additional help text */}
-      <div className="text-sm text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 p-4 rounded-lg">
-        <p className="flex items-center gap-1 mb-2">
+      <div className="text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 p-3 rounded-lg">
+        <p className="flex items-center gap-1 mb-1.5">
           <span className="i-ph:lightbulb w-4 h-4 text-bolt-elements-icon-success dark:text-bolt-elements-icon-success" />
           <span className="font-medium">Troubleshooting Tip:</span>
         </p>
-        <p className="mb-2">
+        <p className="mb-1.5">
           If you're having trouble with connections, try using the troubleshooting tool at the top of this page. It can
           help diagnose and fix common connection issues.
         </p>
