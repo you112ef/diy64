@@ -382,13 +382,13 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
   const allTags = Array.from(new Set(POPULAR_MODELS.flatMap((model) => model.tags)));
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between pt-6">
+    <div className="space-y-4">
+      <div className="flex items-center justify-between pt-4">
         <div className="flex items-center gap-3">
-          <OllamaIcon className="w-8 h-8 text-purple-500" />
+          <OllamaIcon className="w-7 h-7 text-purple-500" />
           <div>
-            <h3 className="text-lg font-semibold text-bolt-elements-textPrimary">Ollama Models</h3>
-            <p className="text-sm text-bolt-elements-textSecondary mt-1">Install and manage your Ollama models</p>
+            <h3 className="text-base font-semibold text-bolt-elements-textPrimary">Ollama Models</h3>
+            <p className="text-xs text-bolt-elements-textSecondary mt-1">Install and manage your Ollama models</p>
           </div>
         </div>
         <motion.button
@@ -413,13 +413,13 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
         </motion.button>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <div className="space-y-1">
             <input
               type="text"
               className={classNames(
-                'w-full px-4 py-3 rounded-xl',
+                'w-full px-3 py-2.5 rounded-xl',
                 'bg-bolt-elements-background-depth-2 border border-bolt-elements-borderColor',
                 'text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary',
                 'focus:outline-none focus:ring-2 focus:ring-purple-500/30',
@@ -440,10 +440,10 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
                 href="https://ollama.com/library"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-500 hover:underline inline-flex items-center gap-1 text-base font-medium"
+                className="text-purple-500 hover:underline inline-flex items-center gap-1 text-sm font-medium"
               >
                 ollama.com/library
-                <div className="i-ph:arrow-square-out text-sm" />
+                <div className="i-ph:arrow-square-out text-xs" />
               </a>{' '}
               and copy model names to install
             </p>
@@ -453,7 +453,7 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
           onClick={() => handleInstallModel(modelString)}
           disabled={!modelString || isInstalling}
           className={classNames(
-            'rounded-lg px-4 py-2',
+            'rounded-lg px-3 py-1.5',
             'bg-purple-500 text-white text-sm',
             'hover:bg-purple-600',
             'transition-all duration-200',
@@ -501,14 +501,14 @@ export default function OllamaModelInstaller({ onModelInstalled }: OllamaModelIn
           <motion.div
             key={model.name}
             className={classNames(
-              'flex items-start gap-2 p-3 rounded-lg',
+              'flex items-start gap-1.5 p-2.5 rounded-lg',
               'bg-bolt-elements-background-depth-3',
               'hover:bg-bolt-elements-background-depth-4',
               'transition-all duration-200',
               'relative group',
             )}
           >
-            <OllamaIcon className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
+            <OllamaIcon className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
             <div className="flex-1 space-y-1.5">
               <div className="flex items-start justify-between">
                 <div>

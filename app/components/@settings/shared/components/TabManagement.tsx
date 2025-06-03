@@ -136,7 +136,7 @@ export const TabManagement = () => {
   }, [setSelectedTab]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <motion.div
         className="space-y-4"
         initial={{ opacity: 0, y: 20 }}
@@ -144,25 +144,25 @@ export const TabManagement = () => {
         transition={{ duration: 0.3 }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between gap-4 mt-8 mb-4">
+        <div className="flex items-center justify-between gap-4 mt-6 mb-3">
           <div className="flex items-center gap-2">
             <div
               className={classNames(
-                'w-8 h-8 flex items-center justify-center rounded-lg',
+                'w-7 h-7 flex items-center justify-center rounded-lg',
                 'bg-bolt-elements-background-depth-3',
                 'text-purple-500',
               )}
             >
-              <TbLayoutGrid className="w-5 h-5" />
+              <TbLayoutGrid className="w-4 h-4" />
             </div>
             <div>
-              <h4 className="text-md font-medium text-bolt-elements-textPrimary">Tab Management</h4>
-              <p className="text-sm text-bolt-elements-textSecondary">Configure visible tabs and their order</p>
+              <h4 className="text-sm font-medium text-bolt-elements-textPrimary">Tab Management</h4>
+              <p className="text-xs text-bolt-elements-textSecondary">Configure visible tabs and their order</p>
             </div>
           </div>
 
           {/* Search */}
-          <div className="relative w-64">
+          <div className="relative w-full sm:w-60">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <div className="i-ph:magnifying-glass w-4 h-4 text-gray-400" />
             </div>
@@ -172,7 +172,7 @@ export const TabManagement = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search tabs..."
               className={classNames(
-                'w-full pl-10 pr-4 py-2 rounded-lg',
+                'w-full pl-8 pr-3 py-1.5 rounded-lg',
                 'bg-bolt-elements-background-depth-2',
                 'border border-bolt-elements-borderColor',
                 'text-bolt-elements-textPrimary',
@@ -188,7 +188,7 @@ export const TabManagement = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Default Section Header */}
           {filteredTabs.some((tab) => DEFAULT_USER_TABS.includes(tab.id)) && (
-            <div className="col-span-full flex items-center gap-2 mt-4 mb-2">
+            <div className="col-span-full flex items-center gap-2 mt-3 mb-1.5">
               <div className="i-ph:star-fill w-4 h-4 text-purple-500" />
               <span className="text-sm font-medium text-bolt-elements-textPrimary">Default Tabs</span>
             </div>
@@ -219,10 +219,10 @@ export const TabManagement = () => {
                   </span>
                 </div>
 
-                <div className="flex items-start gap-4 p-4">
+                <div className="flex items-start gap-3 p-3">
                   <motion.div
                     className={classNames(
-                      'w-10 h-10 flex items-center justify-center rounded-xl',
+                      'w-9 h-9 flex items-center justify-center rounded-xl',
                       'bg-bolt-elements-background-depth-3 group-hover:bg-bolt-elements-background-depth-4',
                       'transition-all duration-200',
                       tab.visible ? 'text-purple-500' : 'text-bolt-elements-textSecondary',
@@ -231,7 +231,7 @@ export const TabManagement = () => {
                     whileTap={{ scale: 0.9 }}
                   >
                     <div
-                      className={classNames('w-6 h-6', 'transition-transform duration-200', 'group-hover:rotate-12')}
+                      className={classNames('w-5 h-5', 'transition-transform duration-200', 'group-hover:rotate-12')}
                     >
                       <div className={classNames(TAB_ICONS[tab.id], 'w-full h-full')} />
                     </div>
@@ -282,7 +282,7 @@ export const TabManagement = () => {
 
           {/* Optional Section Header */}
           {filteredTabs.some((tab) => OPTIONAL_USER_TABS.includes(tab.id)) && (
-            <div className="col-span-full flex items-center gap-2 mt-8 mb-2">
+            <div className="col-span-full flex items-center gap-2 mt-3 mb-1.5">
               <div className="i-ph:plus-circle-fill w-4 h-4 text-blue-500" />
               <span className="text-sm font-medium text-bolt-elements-textPrimary">Optional Tabs</span>
             </div>
@@ -313,10 +313,10 @@ export const TabManagement = () => {
                   </span>
                 </div>
 
-                <div className="flex items-start gap-4 p-4">
+                <div className="flex items-start gap-3 p-3">
                   <motion.div
                     className={classNames(
-                      'w-10 h-10 flex items-center justify-center rounded-xl',
+                      'w-9 h-9 flex items-center justify-center rounded-xl',
                       'bg-bolt-elements-background-depth-3 group-hover:bg-bolt-elements-background-depth-4',
                       'transition-all duration-200',
                       tab.visible ? 'text-purple-500' : 'text-bolt-elements-textSecondary',
@@ -325,7 +325,7 @@ export const TabManagement = () => {
                     whileTap={{ scale: 0.9 }}
                   >
                     <div
-                      className={classNames('w-6 h-6', 'transition-transform duration-200', 'group-hover:rotate-12')}
+                      className={classNames('w-5 h-5', 'transition-transform duration-200', 'group-hover:rotate-12')}
                     >
                       <div className={classNames(TAB_ICONS[tab.id], 'w-full h-full')} />
                     </div>

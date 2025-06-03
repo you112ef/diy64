@@ -1086,31 +1086,31 @@ const TaskManagerTab: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4"> {/* gap-6 to gap-4 */}
       {/* Summary Header */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]">
-          <div className="text-sm text-bolt-elements-textSecondary">CPU</div>
+      <div className="grid grid-cols-4 gap-3"> {/* gap-4 to gap-3 */}
+        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]"> {/* p-3 to p-2 */}
+          <div className="text-xs text-bolt-elements-textSecondary">CPU</div> {/* text-sm to text-xs */}
           <div
             className={classNames(
-              'text-xl font-semibold',
+              'text-lg font-semibold', // text-xl to text-lg
               getUsageColor(metricsHistory.cpu[metricsHistory.cpu.length - 1] || 0),
             )}
           >
             {(metricsHistory.cpu[metricsHistory.cpu.length - 1] || 0).toFixed(1)}%
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]">
-          <div className="text-sm text-bolt-elements-textSecondary">Memory</div>
-          <div className={classNames('text-xl font-semibold', getUsageColor(metrics.systemMemory?.percentage || 0))}>
+        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]"> {/* p-3 to p-2 */}
+          <div className="text-xs text-bolt-elements-textSecondary">Memory</div> {/* text-sm to text-xs */}
+          <div className={classNames('text-lg font-semibold', getUsageColor(metrics.systemMemory?.percentage || 0))}> {/* text-xl to text-lg */}
             {Math.round(metrics.systemMemory?.percentage || 0)}%
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]">
-          <div className="text-sm text-bolt-elements-textSecondary">Disk</div>
+        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]"> {/* p-3 to p-2 */}
+          <div className="text-xs text-bolt-elements-textSecondary">Disk</div> {/* text-sm to text-xs */}
           <div
             className={classNames(
-              'text-xl font-semibold',
+              'text-lg font-semibold', // text-xl to text-lg
               getUsageColor(
                 metrics.disks && metrics.disks.length > 0
                   ? metrics.disks.reduce((total, disk) => total + disk.percentage, 0) / metrics.disks.length
@@ -1124,34 +1124,34 @@ const TaskManagerTab: React.FC = () => {
             %
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]">
-          <div className="text-sm text-bolt-elements-textSecondary">Network</div>
-          <div className="text-xl font-semibold text-gray-500">{metrics.network.downlink.toFixed(1)} Mbps</div>
+        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]"> {/* p-3 to p-2 */}
+          <div className="text-xs text-bolt-elements-textSecondary">Network</div> {/* text-sm to text-xs */}
+          <div className="text-lg font-semibold text-gray-500">{metrics.network.downlink.toFixed(1)} Mbps</div> {/* text-xl to text-lg */}
         </div>
       </div>
 
       {/* Memory Usage */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-base font-medium text-bolt-elements-textPrimary">Memory Usage</h3>
-        <div className="grid grid-cols-1 gap-4">
+      <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
+        <h3 className="text-sm font-medium text-bolt-elements-textPrimary">Memory Usage</h3> {/* text-base to text-sm */}
+        <div className="grid grid-cols-1 gap-3"> {/* gap-4 to gap-3 */}
           {/* System Physical Memory */}
-          <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+          <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <span className="text-sm text-bolt-elements-textSecondary">System Memory</span>
+                <span className="text-xs text-bolt-elements-textSecondary">System Memory</span> {/* text-sm to text-xs */}
                 <div className="relative ml-1 group">
-                  <div className="i-ph:info-duotone w-4 h-4 text-bolt-elements-textSecondary cursor-help" />
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 bg-bolt-background-tertiary dark:bg-bolt-backgroundDark-tertiary rounded shadow-lg text-xs text-bolt-elements-textSecondary opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  <div className="i-ph:info-duotone w-3 h-3 text-bolt-elements-textSecondary cursor-help" /> {/* w-4 h-4 to w-3 h-3 */}
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-60 p-2 bg-bolt-background-tertiary dark:bg-bolt-backgroundDark-tertiary rounded shadow-lg text-xs text-bolt-elements-textSecondary opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10"> {/* w-64 to w-60 */}
                     Shows your system's physical memory (RAM) usage.
                   </div>
                 </div>
               </div>
-              <span className={classNames('text-sm font-medium', getUsageColor(metrics.systemMemory?.percentage || 0))}>
+              <span className={classNames('text-xs font-medium', getUsageColor(metrics.systemMemory?.percentage || 0))}> {/* text-sm to text-xs */}
                 {Math.round(metrics.systemMemory?.percentage || 0)}%
               </span>
             </div>
             {renderUsageGraph(metricsHistory.memory, 'Memory', '#2563eb', memoryChartRef)}
-            <div className="text-xs text-bolt-elements-textSecondary mt-2">
+            <div className="text-xs text-bolt-elements-textSecondary mt-1.5"> {/* mt-2 to mt-1.5 */}
               Used: {formatBytes(metrics.systemMemory?.used || 0)} / {formatBytes(metrics.systemMemory?.total || 0)}
             </div>
             <div className="text-xs text-bolt-elements-textSecondary">
@@ -1161,26 +1161,26 @@ const TaskManagerTab: React.FC = () => {
 
           {/* Swap Memory */}
           {metrics.systemMemory?.swap && (
-            <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+            <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <span className="text-sm text-bolt-elements-textSecondary">Swap Memory</span>
+                  <span className="text-xs text-bolt-elements-textSecondary">Swap Memory</span> {/* text-sm to text-xs */}
                   <div className="relative ml-1 group">
-                    <div className="i-ph:info-duotone w-4 h-4 text-bolt-elements-textSecondary cursor-help" />
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 bg-bolt-background-tertiary dark:bg-bolt-backgroundDark-tertiary rounded shadow-lg text-xs text-bolt-elements-textSecondary opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                    <div className="i-ph:info-duotone w-3 h-3 text-bolt-elements-textSecondary cursor-help" /> {/* w-4 h-4 to w-3 h-3 */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-60 p-2 bg-bolt-background-tertiary dark:bg-bolt-backgroundDark-tertiary rounded shadow-lg text-xs text-bolt-elements-textSecondary opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10"> {/* w-64 to w-60 */}
                       Virtual memory used when physical RAM is full.
                     </div>
                   </div>
                 </div>
                 <span
-                  className={classNames('text-sm font-medium', getUsageColor(metrics.systemMemory.swap.percentage))}
+                  className={classNames('text-xs font-medium', getUsageColor(metrics.systemMemory.swap.percentage))} /* text-sm to text-xs */
                 >
                   {Math.round(metrics.systemMemory.swap.percentage)}%
                 </span>
               </div>
-              <div className="w-full bg-bolt-elements-border rounded-full h-2 mb-2">
+              <div className="w-full bg-bolt-elements-border rounded-full h-1.5 mb-1.5"> {/* h-2 mb-2 to h-1.5 mb-1.5 */}
                 <div
-                  className={classNames('h-2 rounded-full', getUsageColor(metrics.systemMemory.swap.percentage))}
+                  className={classNames('h-1.5 rounded-full', getUsageColor(metrics.systemMemory.swap.percentage))} /* h-2 to h-1.5 */
                   style={{ width: `${Math.min(100, Math.max(0, metrics.systemMemory.swap.percentage))}%` }}
                 />
               </div>
@@ -1196,15 +1196,15 @@ const TaskManagerTab: React.FC = () => {
       </div>
 
       {/* Disk Usage */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-base font-medium text-bolt-elements-textPrimary">Disk Usage</h3>
+      <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
+        <h3 className="text-sm font-medium text-bolt-elements-textPrimary">Disk Usage</h3> {/* text-base to text-sm */}
         {metrics.disks && metrics.disks.length > 0 ? (
-          <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+          <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
             <div className="flex items-center justify-between">
-              <span className="text-sm text-bolt-elements-textSecondary">System Disk</span>
+              <span className="text-xs text-bolt-elements-textSecondary">System Disk</span> {/* text-sm to text-xs */}
               <span
                 className={classNames(
-                  'text-sm font-medium',
+                  'text-xs font-medium', // text-sm to text-xs
                   getUsageColor(metricsHistory.disk[metricsHistory.disk.length - 1] || 0),
                 )}
               >
@@ -1216,13 +1216,13 @@ const TaskManagerTab: React.FC = () => {
             {/* Show only the main system disk (usually the first one) */}
             {metrics.disks[0] && (
               <>
-                <div className="w-full bg-bolt-elements-border rounded-full h-2 mt-2">
+                <div className="w-full bg-bolt-elements-border rounded-full h-1.5 mt-1.5"> {/* h-2 mt-2 to h-1.5 mt-1.5 */}
                   <div
-                    className={classNames('h-2 rounded-full', getUsageColor(metrics.disks[0].percentage))}
+                    className={classNames('h-1.5 rounded-full', getUsageColor(metrics.disks[0].percentage))} /* h-2 to h-1.5 */
                     style={{ width: `${Math.min(100, Math.max(0, metrics.disks[0].percentage))}%` }}
                   />
                 </div>
-                <div className="flex justify-between text-xs text-bolt-elements-textSecondary mt-1">
+                <div className="flex justify-between text-xs text-bolt-elements-textSecondary mt-1"> {/* mt-1 from mt-0.5 */}
                   <div>Used: {formatBytes(metrics.disks[0].used)}</div>
                   <div>Free: {formatBytes(metrics.disks[0].available)}</div>
                   <div>Total: {formatBytes(metrics.disks[0].size)}</div>
@@ -1231,10 +1231,10 @@ const TaskManagerTab: React.FC = () => {
             )}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-6 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]">
-            <div className="i-ph:hard-drive-fill w-12 h-12 text-bolt-elements-textTertiary mb-2" />
-            <p className="text-bolt-elements-textSecondary text-sm">Disk information is not available</p>
-            <p className="text-bolt-elements-textTertiary text-xs mt-1">
+          <div className="flex flex-col items-center justify-center py-4 rounded-lg bg-[#F8F8F8] dark:bg-[#141414]"> {/* py-6 to py-4 */}
+            <div className="i-ph:hard-drive-fill w-10 h-10 text-bolt-elements-textTertiary mb-1.5" /> {/* w-12 h-12 to w-10 h-10, mb-2 to mb-1.5 */}
+            <p className="text-bolt-elements-textSecondary text-xs">Disk information is not available</p> {/* text-sm to text-xs */}
+            <p className="text-bolt-elements-textTertiary text-xs mt-0.5"> {/* mt-1 to mt-0.5 */}
               This feature may not be supported in your environment
             </p>
           </div>
@@ -1242,30 +1242,30 @@ const TaskManagerTab: React.FC = () => {
       </div>
 
       {/* Process Information */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-medium text-bolt-elements-textPrimary">Process Information</h3>
+          <h3 className="text-sm font-medium text-bolt-elements-textPrimary">Process Information</h3> {/* text-base to text-sm */}
           <button
             onClick={updateMetrics}
             className="flex items-center gap-1 text-xs text-bolt-elements-textSecondary hover:text-bolt-elements-textPrimary"
           >
-            <div className="i-ph:arrows-clockwise w-4 h-4" />
+            <div className="i-ph:arrows-clockwise w-3 h-3" /> {/* w-4 h-4 to w-3 h-3 */}
             Refresh
           </button>
         </div>
-        <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+        <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
           {metrics.processes && metrics.processes.length > 0 ? (
             <>
               {/* CPU Usage Summary */}
               {metrics.processes[0].name !== 'Unknown' && (
-                <div className="mb-3">
+                <div className="mb-2"> {/* mb-3 to mb-2 */}
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-bolt-elements-textSecondary">CPU Usage</span>
-                    <span className="text-sm font-medium text-bolt-elements-textPrimary">
+                    <span className="text-xs text-bolt-elements-textSecondary">CPU Usage</span> {/* text-sm to text-xs */}
+                    <span className="text-xs font-medium text-bolt-elements-textPrimary"> {/* text-sm to text-xs */}
                       {(metricsHistory.cpu[metricsHistory.cpu.length - 1] || 0).toFixed(1)}% Total
                     </span>
                   </div>
-                  <div className="w-full h-2 bg-bolt-elements-border rounded-full overflow-hidden relative">
+                  <div className="w-full h-1.5 bg-bolt-elements-border rounded-full overflow-hidden relative"> {/* h-2 to h-1.5 */}
                     <div className="flex h-full w-full">
                       {metrics.processes.map((process, index) => {
                         return (
@@ -1281,7 +1281,7 @@ const TaskManagerTab: React.FC = () => {
                       })}
                     </div>
                   </div>
-                  <div className="flex justify-between mt-2 text-xs">
+                  <div className="flex justify-between mt-1.5 text-xs"> {/* mt-2 to mt-1.5 */}
                     <div className="text-bolt-elements-textSecondary">
                       System:{' '}
                       {metrics.processes.reduce((total, proc) => total + (proc.cpu < 10 ? proc.cpu : 0), 0).toFixed(1)}%
@@ -1299,29 +1299,29 @@ const TaskManagerTab: React.FC = () => {
               )}
 
               <div className="overflow-x-auto">
-                <table className="w-full text-sm">
+                <table className="w-full text-xs"> {/* text-sm to text-xs */}
                   <thead>
                     <tr className="text-bolt-elements-textSecondary border-b border-bolt-elements-border">
                       <th
-                        className="text-left py-2 px-2 cursor-pointer hover:text-bolt-elements-textPrimary"
+                        className="text-left py-1.5 px-1.5 cursor-pointer hover:text-bolt-elements-textPrimary" /* py-2 px-2 to py-1.5 px-1.5 */
                         onClick={() => handleSort('name')}
                       >
                         Process {sortField === 'name' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </th>
                       <th
-                        className="text-right py-2 px-2 cursor-pointer hover:text-bolt-elements-textPrimary"
+                        className="text-right py-1.5 px-1.5 cursor-pointer hover:text-bolt-elements-textPrimary" /* py-2 px-2 to py-1.5 px-1.5 */
                         onClick={() => handleSort('pid')}
                       >
                         PID {sortField === 'pid' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </th>
                       <th
-                        className="text-right py-2 px-2 cursor-pointer hover:text-bolt-elements-textPrimary"
+                        className="text-right py-1.5 px-1.5 cursor-pointer hover:text-bolt-elements-textPrimary" /* py-2 px-2 to py-1.5 px-1.5 */
                         onClick={() => handleSort('cpu')}
                       >
                         CPU % {sortField === 'cpu' && (sortDirection === 'asc' ? '↑' : '↓')}
                       </th>
                       <th
-                        className="text-right py-2 px-2 cursor-pointer hover:text-bolt-elements-textPrimary"
+                        className="text-right py-1.5 px-1.5 cursor-pointer hover:text-bolt-elements-textPrimary" /* py-2 px-2 to py-1.5 px-1.5 */
                         onClick={() => handleSort('memory')}
                       >
                         Memory {sortField === 'memory' && (sortDirection === 'asc' ? '↑' : '↓')}
@@ -1335,18 +1335,18 @@ const TaskManagerTab: React.FC = () => {
                         className="border-b border-bolt-elements-border last:border-0"
                       >
                         <td
-                          className="py-2 px-2 text-bolt-elements-textPrimary truncate max-w-[200px]"
+                          className="py-1.5 px-1.5 text-bolt-elements-textPrimary truncate max-w-[180px]" /* py-2 px-2 to py-1.5 px-1.5, max-w-[200px] to max-w-[180px] */
                           title={process.command || process.name}
                         >
                           {process.name}
                         </td>
-                        <td className="py-2 px-2 text-right text-bolt-elements-textSecondary">{process.pid}</td>
-                        <td className={classNames('py-2 px-2 text-right', getUsageColor(process.cpu))}>
+                        <td className="py-1.5 px-1.5 text-right text-bolt-elements-textSecondary">{process.pid}</td> {/* py-2 px-2 to py-1.5 px-1.5 */}
+                        <td className={classNames('py-1.5 px-1.5 text-right', getUsageColor(process.cpu))}> {/* py-2 px-2 to py-1.5 px-1.5 */}
                           <div
                             className="flex items-center justify-end gap-1"
                             title={`CPU Usage: ${process.cpu.toFixed(1)}% ${process.command ? `\nCommand: ${process.command}` : ''}`}
                           >
-                            <div className="w-16 h-2 bg-bolt-elements-border rounded-full overflow-hidden">
+                            <div className="w-14 h-1.5 bg-bolt-elements-border rounded-full overflow-hidden"> {/* w-16 h-2 to w-14 h-1.5 */}
                               <div
                                 className={classNames('h-full rounded-full', getUsageColor(process.cpu))}
                                 style={{ width: `${Math.min(100, Math.max(0, process.cpu))}%` }}
@@ -1355,12 +1355,12 @@ const TaskManagerTab: React.FC = () => {
                             {process.cpu.toFixed(1)}%
                           </div>
                         </td>
-                        <td className={classNames('py-2 px-2 text-right', getUsageColor(process.memory))}>
+                        <td className={classNames('py-1.5 px-1.5 text-right', getUsageColor(process.memory))}> {/* py-2 px-2 to py-1.5 px-1.5 */}
                           <div
                             className="flex items-center justify-end gap-1"
                             title={`Memory Usage: ${process.memory.toFixed(1)}%`}
                           >
-                            <div className="w-16 h-2 bg-bolt-elements-border rounded-full overflow-hidden">
+                            <div className="w-14 h-1.5 bg-bolt-elements-border rounded-full overflow-hidden"> {/* w-16 h-2 to w-14 h-1.5 */}
                               <div
                                 className={classNames('h-full rounded-full', getUsageColor(process.memory))}
                                 style={{ width: `${Math.min(100, Math.max(0, process.memory))}%` }}
@@ -1377,15 +1377,15 @@ const TaskManagerTab: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="text-xs text-bolt-elements-textSecondary mt-2">
+              <div className="text-xs text-bolt-elements-textSecondary mt-1.5"> {/* mt-2 to mt-1.5 */}
                 {metrics.processes[0].error ? (
                   <span className="text-yellow-500">
-                    <div className="i-ph:warning-circle-fill w-4 h-4 inline-block mr-1" />
+                    <div className="i-ph:warning-circle-fill w-3 h-3 inline-block mr-1" /> {/* w-4 h-4 to w-3 h-3 */}
                     Error retrieving process information: {metrics.processes[0].error}
                   </span>
                 ) : metrics.processes[0].name === 'Browser' ? (
                   <span>
-                    <div className="i-ph:info-fill w-4 h-4 inline-block mr-1 text-blue-500" />
+                    <div className="i-ph:info-fill w-3 h-3 inline-block mr-1 text-blue-500" /> {/* w-4 h-4 to w-3 h-3 */}
                     Showing browser process information. System process information is not available in this
                     environment.
                   </span>
@@ -1395,15 +1395,15 @@ const TaskManagerTab: React.FC = () => {
               </div>
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center py-6">
-              <div className="i-ph:cpu-fill w-12 h-12 text-bolt-elements-textTertiary mb-2" />
-              <p className="text-bolt-elements-textSecondary text-sm">Process information is not available</p>
-              <p className="text-bolt-elements-textTertiary text-xs mt-1">
+            <div className="flex flex-col items-center justify-center py-4"> {/* py-6 to py-4 */}
+              <div className="i-ph:cpu-fill w-10 h-10 text-bolt-elements-textTertiary mb-1.5" /> {/* w-12 h-12 to w-10 h-10, mb-2 to mb-1.5 */}
+              <p className="text-bolt-elements-textSecondary text-xs">Process information is not available</p> {/* text-sm to text-xs */}
+              <p className="text-bolt-elements-textTertiary text-xs mt-0.5"> {/* mt-1 to mt-0.5 */}
                 This feature may not be supported in your environment
               </p>
               <button
                 onClick={updateMetrics}
-                className="mt-4 px-3 py-1 bg-bolt-action-primary text-white rounded-md text-xs"
+                className="mt-3 px-2.5 py-1 bg-bolt-action-primary text-white rounded-md text-xs" /* mt-4 px-3 py-1 to mt-3 px-2.5 py-1 */
               >
                 Try Again
               </button>
@@ -1413,14 +1413,14 @@ const TaskManagerTab: React.FC = () => {
       </div>
 
       {/* CPU Usage Graph */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-base font-medium text-bolt-elements-textPrimary">CPU Usage History</h3>
-        <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+      <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
+        <h3 className="text-sm font-medium text-bolt-elements-textPrimary">CPU Usage History</h3> {/* text-base to text-sm */}
+        <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
           <div className="flex items-center justify-between">
-            <span className="text-sm text-bolt-elements-textSecondary">System CPU</span>
+            <span className="text-xs text-bolt-elements-textSecondary">System CPU</span> {/* text-sm to text-xs */}
             <span
               className={classNames(
-                'text-sm font-medium',
+                'text-xs font-medium', // text-sm to text-xs
                 getUsageColor(metricsHistory.cpu[metricsHistory.cpu.length - 1] || 0),
               )}
             >
@@ -1428,7 +1428,7 @@ const TaskManagerTab: React.FC = () => {
             </span>
           </div>
           {renderUsageGraph(metricsHistory.cpu, 'CPU', '#ef4444', cpuChartRef)}
-          <div className="text-xs text-bolt-elements-textSecondary mt-2">
+          <div className="text-xs text-bolt-elements-textSecondary mt-1.5"> {/* mt-2 to mt-1.5 */}
             Average: {(metricsHistory.cpu.reduce((a, b) => a + b, 0) / metricsHistory.cpu.length || 0).toFixed(1)}%
           </div>
           <div className="text-xs text-bolt-elements-textSecondary">
@@ -1438,24 +1438,24 @@ const TaskManagerTab: React.FC = () => {
       </div>
 
       {/* Network */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-base font-medium text-bolt-elements-textPrimary">Network</h3>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+      <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
+        <h3 className="text-sm font-medium text-bolt-elements-textPrimary">Network</h3> {/* text-base to text-sm */}
+        <div className="grid grid-cols-1 gap-3"> {/* gap-4 to gap-3 */}
+          <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
             <div className="flex items-center justify-between">
-              <span className="text-sm text-bolt-elements-textSecondary">Connection</span>
-              <span className="text-sm font-medium text-bolt-elements-textPrimary">
+              <span className="text-xs text-bolt-elements-textSecondary">Connection</span> {/* text-sm to text-xs */}
+              <span className="text-xs font-medium text-bolt-elements-textPrimary"> {/* text-sm to text-xs */}
                 {metrics.network.downlink.toFixed(1)} Mbps
               </span>
             </div>
             {renderUsageGraph(metricsHistory.network, 'Network', '#f59e0b', networkChartRef)}
-            <div className="text-xs text-bolt-elements-textSecondary mt-2">
+            <div className="text-xs text-bolt-elements-textSecondary mt-1.5"> {/* mt-2 to mt-1.5 */}
               Type: {metrics.network.type}
               {metrics.network.effectiveType && ` (${metrics.network.effectiveType})`}
             </div>
             <div className="text-xs text-bolt-elements-textSecondary">
               Latency: {Math.round(metrics.network.latency.current)}ms
-              <span className="text-xs text-bolt-elements-textTertiary ml-2">
+              <span className="text-xs text-bolt-elements-textTertiary ml-1.5"> {/* ml-2 to ml-1.5 */}
                 (avg: {Math.round(metrics.network.latency.average)}ms)
               </span>
             </div>
@@ -1473,17 +1473,17 @@ const TaskManagerTab: React.FC = () => {
 
       {/* Battery */}
       {metrics.battery && (
-        <div className="flex flex-col gap-4">
-          <h3 className="text-base font-medium text-bolt-elements-textPrimary">Battery</h3>
-          <div className="grid grid-cols-1 gap-4">
-            <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+        <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
+          <h3 className="text-sm font-medium text-bolt-elements-textPrimary">Battery</h3> {/* text-base to text-sm */}
+          <div className="grid grid-cols-1 gap-3"> {/* gap-4 to gap-3 */}
+            <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
               <div className="flex items-center justify-between">
-                <span className="text-sm text-bolt-elements-textSecondary">Status</span>
-                <div className="flex items-center gap-2">
-                  {metrics.battery.charging && <div className="i-ph:lightning-fill w-4 h-4 text-bolt-action-primary" />}
+                <span className="text-xs text-bolt-elements-textSecondary">Status</span> {/* text-sm to text-xs */}
+                <div className="flex items-center gap-1.5"> {/* gap-2 to gap-1.5 */}
+                  {metrics.battery.charging && <div className="i-ph:lightning-fill w-3 h-3 text-bolt-action-primary" />} {/* w-4 h-4 to w-3 h-3 */}
                   <span
                     className={classNames(
-                      'text-sm font-medium',
+                      'text-xs font-medium', // text-sm to text-xs
                       metrics.battery.level > 20 ? 'text-bolt-elements-textPrimary' : 'text-red-500',
                     )}
                   >
@@ -1493,7 +1493,7 @@ const TaskManagerTab: React.FC = () => {
               </div>
               {renderUsageGraph(metricsHistory.battery, 'Battery', '#22c55e', batteryChartRef)}
               {metrics.battery.timeRemaining && metrics.battery.timeRemaining !== Infinity && (
-                <div className="text-xs text-bolt-elements-textSecondary mt-2">
+                <div className="text-xs text-bolt-elements-textSecondary mt-1.5"> {/* mt-2 to mt-1.5 */}
                   {metrics.battery.charging ? 'Time to full: ' : 'Time remaining: '}
                   {formatTime(metrics.battery.timeRemaining)}
                 </div>
@@ -1504,10 +1504,10 @@ const TaskManagerTab: React.FC = () => {
       )}
 
       {/* Performance */}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-base font-medium text-bolt-elements-textPrimary">Performance</h3>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+      <div className="flex flex-col gap-3"> {/* gap-4 to gap-3 */}
+        <h3 className="text-sm font-medium text-bolt-elements-textPrimary">Performance</h3> {/* text-base to text-sm */}
+        <div className="grid grid-cols-1 gap-3"> {/* gap-4 to gap-3 */}
+          <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
             <div className="text-xs text-bolt-elements-textSecondary">
               Page Load: {(metrics.performance.pageLoad / 1000).toFixed(2)}s
             </div>
@@ -1526,9 +1526,9 @@ const TaskManagerTab: React.FC = () => {
 
       {/* Alerts */}
       {alerts.length > 0 && (
-        <div className="flex flex-col gap-2 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-4">
+        <div className="flex flex-col gap-1.5 rounded-lg bg-[#F8F8F8] dark:bg-[#141414] p-3"> {/* gap-2 to gap-1.5, p-4 to p-3 */}
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-bolt-elements-textPrimary">Recent Alerts</span>
+            <span className="text-xs font-medium text-bolt-elements-textPrimary">Recent Alerts</span> {/* text-sm to text-xs */}
             <button
               onClick={() => setAlerts([])}
               className="text-xs text-bolt-elements-textSecondary hover:text-bolt-elements-textPrimary"
@@ -1536,18 +1536,18 @@ const TaskManagerTab: React.FC = () => {
               Clear All
             </button>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1.5"> {/* space-y-2 to space-y-1.5 */}
             {alerts.slice(-5).map((alert, index) => (
               <div
                 key={index}
-                className={classNames('flex items-center gap-2 text-sm', {
+                className={classNames('flex items-center gap-1.5 text-xs', { /* gap-2 to gap-1.5, text-sm to text-xs */
                   'text-red-500': alert.type === 'error',
                   'text-yellow-500': alert.type === 'warning',
                   'text-blue-500': alert.type === 'info',
                 })}
               >
                 <div
-                  className={classNames('w-4 h-4', {
+                  className={classNames('w-3 h-3', { /* w-4 h-4 to w-3 h-3 */
                     'i-ph:warning-circle-fill': alert.type === 'warning',
                     'i-ph:x-circle-fill': alert.type === 'error',
                     'i-ph:info-fill': alert.type === 'info',

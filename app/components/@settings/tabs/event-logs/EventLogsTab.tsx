@@ -145,7 +145,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
           {details.prompt && (
             <div className="flex flex-col gap-1">
               <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Prompt:</div>
-              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-2 whitespace-pre-wrap">
+              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-1.5 whitespace-pre-wrap">
                 {details.prompt}
               </pre>
             </div>
@@ -153,7 +153,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
           {details.response && (
             <div className="flex flex-col gap-1">
               <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Response:</div>
-              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-2 whitespace-pre-wrap">
+              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-1.5 whitespace-pre-wrap">
                 {details.response}
               </pre>
             </div>
@@ -176,7 +176,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
           {details.request && (
             <div className="flex flex-col gap-1">
               <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Request:</div>
-              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-2 whitespace-pre-wrap">
+              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-1.5 whitespace-pre-wrap">
                 {JSON.stringify(details.request, null, 2)}
               </pre>
             </div>
@@ -184,7 +184,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
           {details.response && (
             <div className="flex flex-col gap-1">
               <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Response:</div>
-              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-2 whitespace-pre-wrap">
+              <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded p-1.5 whitespace-pre-wrap">
                 {JSON.stringify(details.response, null, 2)}
               </pre>
             </div>
@@ -192,7 +192,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
           {details.error && (
             <div className="flex flex-col gap-1">
               <div className="text-xs font-medium text-red-500">Error:</div>
-              <pre className="text-xs text-red-400 bg-red-50 dark:bg-red-500/10 rounded p-2 whitespace-pre-wrap">
+              <pre className="text-xs text-red-400 bg-red-50 dark:bg-red-500/10 rounded p-1.5 whitespace-pre-wrap">
                 {JSON.stringify(details.error, null, 2)}
               </pre>
             </div>
@@ -202,7 +202,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
     }
 
     return (
-      <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded whitespace-pre-wrap">
+      <pre className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded whitespace-pre-wrap p-1.5">
         {JSON.stringify(details, null, 2)}
       </pre>
     );
@@ -213,8 +213,8 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className={classNames(
-        'flex flex-col gap-2',
-        'rounded-lg p-4',
+        'flex flex-col gap-1.5', // Changed gap
+        'rounded-lg p-3', // Changed padding
         'bg-[#FAFAFA] dark:bg-[#0A0A0A]',
         'border border-[#E5E5E5] dark:border-[#1A1A1A]',
         style.bg,
@@ -223,7 +223,7 @@ const LogEntryItem = ({ log, isExpanded: forceExpanded, use24Hour, showTimestamp
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-3">
-          <span className={classNames('text-lg', style.icon, style.color)} />
+          <span className={classNames('text-base', style.icon, style.color)} /> {/* Changed icon size */}
           <div className="flex flex-col gap-1">
             <div className="text-sm font-medium text-gray-900 dark:text-white">{log.message}</div>
             {log.details && (
@@ -857,8 +857,8 @@ export function EventLogsTab() {
   };
 
   return (
-    <div className="flex h-full flex-col gap-6">
-      <div className="flex items-center justify-between">
+    <div className="flex h-full flex-col gap-4">
+      <div className="flex items-center justify-between flex-wrap gap-y-2">
         <DropdownMenu.Root open={showLevelFilter} onOpenChange={setShowLevelFilter}>
           <DropdownMenu.Trigger asChild>
             <button
@@ -873,11 +873,11 @@ export function EventLogsTab() {
               )}
             >
               <span
-                className={classNames('text-lg', selectedLevelOption?.icon || 'i-ph:funnel')}
+                className={classNames('text-base', selectedLevelOption?.icon || 'i-ph:funnel')}
                 style={{ color: selectedLevelOption?.color }}
               />
               {selectedLevelOption?.label || 'All Types'}
-              <span className="i-ph:caret-down text-lg text-gray-500 dark:text-gray-400" />
+              <span className="i-ph:caret-down text-base text-gray-500 dark:text-gray-400" />
             </button>
           </DropdownMenu.Trigger>
 
@@ -1011,3 +1011,5 @@ export function EventLogsTab() {
     </div>
   );
 }
+
+[end of app/components/@settings/tabs/event-logs/EventLogsTab.tsx]

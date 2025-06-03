@@ -285,33 +285,33 @@ const UpdateTab = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       <motion.div
         className="flex items-center gap-3"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="i-ph:arrow-circle-up text-xl text-purple-500" />
+        <div className="i-ph:arrow-circle-up text-lg text-purple-500" /> {/* Icon size from text-xl to text-lg */}
         <div>
-          <h3 className="text-lg font-medium text-bolt-elements-textPrimary">Updates</h3>
-          <p className="text-sm text-bolt-elements-textSecondary">Check for and manage application updates</p>
+          <h3 className="text-base font-medium text-bolt-elements-textPrimary">Updates</h3> {/* Title from text-lg to text-base */}
+          <p className="text-xs text-bolt-elements-textSecondary">Check for and manage application updates</p> {/* Description from text-sm to text-xs */}
         </div>
       </motion.div>
 
       {/* Update Settings Card */}
       <motion.div
-        className="p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]"
+        className="p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]" // p-6 to p-4
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.1 }}
       >
-        <div className="flex items-center gap-3 mb-6">
-          <div className="i-ph:gear text-purple-500 w-5 h-5" />
-          <h3 className="text-lg font-medium text-bolt-elements-textPrimary">Update Settings</h3>
+        <div className="flex items-center gap-3 mb-4"> {/* mb-6 to mb-4 */}
+          <div className="i-ph:gear text-purple-500 w-4 h-4" /> {/* Icon size from w-5 h-5 to w-4 h-4 */}
+          <h3 className="text-base font-medium text-bolt-elements-textPrimary">Update Settings</h3> {/* Title from text-lg to text-base */}
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3"> {/* space-y-4 to space-y-3 */}
           <div className="flex items-center justify-between">
             <div>
               <span className="text-sm text-bolt-elements-textPrimary">Automatic Updates</span>
@@ -322,14 +322,14 @@ const UpdateTab = () => {
             <button
               onClick={() => setUpdateSettings((prev) => ({ ...prev, autoUpdate: !prev.autoUpdate }))}
               className={classNames(
-                'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
+                'relative inline-flex h-5 w-9 items-center rounded-full transition-colors', // h-6 w-11 to h-5 w-9
                 updateSettings.autoUpdate ? 'bg-purple-500' : 'bg-gray-200 dark:bg-gray-700',
               )}
             >
               <span
                 className={classNames(
-                  'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
-                  updateSettings.autoUpdate ? 'translate-x-6' : 'translate-x-1',
+                  'inline-block h-4 w-4 transform rounded-full bg-white transition-transform', // h-5 w-5 to h-4 w-4
+                  updateSettings.autoUpdate ? 'translate-x-5' : 'translate-x-1', // Adjusted translate for new size
                 )}
               />
             </button>
@@ -343,14 +343,14 @@ const UpdateTab = () => {
             <button
               onClick={() => setUpdateSettings((prev) => ({ ...prev, notifyInApp: !prev.notifyInApp }))}
               className={classNames(
-                'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
+                'relative inline-flex h-5 w-9 items-center rounded-full transition-colors', // h-6 w-11 to h-5 w-9
                 updateSettings.notifyInApp ? 'bg-purple-500' : 'bg-gray-200 dark:bg-gray-700',
               )}
             >
               <span
                 className={classNames(
-                  'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
-                  updateSettings.notifyInApp ? 'translate-x-6' : 'translate-x-1',
+                  'inline-block h-4 w-4 transform rounded-full bg-white transition-transform', // h-5 w-5 to h-4 w-4
+                  updateSettings.notifyInApp ? 'translate-x-5' : 'translate-x-1', // Adjusted translate for new size
                 )}
               />
             </button>
@@ -365,7 +365,7 @@ const UpdateTab = () => {
               value={updateSettings.checkInterval}
               onChange={(e) => setUpdateSettings((prev) => ({ ...prev, checkInterval: Number(e.target.value) }))}
               className={classNames(
-                'px-3 py-2 rounded-lg text-sm',
+                'px-2.5 py-1.5 rounded-lg text-sm', // px-3 py-2 to px-2.5 py-1.5
                 'bg-[#F5F5F5] dark:bg-[#1A1A1A]',
                 'border border-[#E5E5E5] dark:border-[#1A1A1A]',
                 'text-bolt-elements-textPrimary',
@@ -384,22 +384,22 @@ const UpdateTab = () => {
 
       {/* Update Status Card */}
       <motion.div
-        className="p-6 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]"
+        className="p-4 rounded-xl bg-white dark:bg-[#0A0A0A] border border-[#E5E5E5] dark:border-[#1A1A1A]" // p-6 to p-4
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4"> {/* mb-6 to mb-4 */}
           <div className="flex items-center gap-3">
-            <div className="i-ph:arrows-clockwise text-purple-500 w-5 h-5" />
-            <h3 className="text-lg font-medium text-bolt-elements-textPrimary">Update Status</h3>
+            <div className="i-ph:arrows-clockwise text-purple-500 w-4 h-4" /> {/* Icon size w-5 h-5 to w-4 h-4 */}
+            <h3 className="text-base font-medium text-bolt-elements-textPrimary">Update Status</h3> {/* Title text-lg to text-base */}
           </div>
           <div className="flex items-center gap-2">
             {updateProgress?.details?.updateReady && !updateSettings.autoUpdate && (
               <button
                 onClick={handleUpdate}
                 className={classNames(
-                  'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
+                  'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm', // px-4 py-2 to px-3 py-1.5
                   'bg-purple-500 text-white',
                   'hover:bg-purple-600',
                   'transition-colors duration-200',
@@ -415,7 +415,7 @@ const UpdateTab = () => {
                 checkForUpdates();
               }}
               className={classNames(
-                'flex items-center gap-2 px-4 py-2 rounded-lg text-sm',
+                'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm', // px-4 py-2 to px-3 py-1.5
                 'bg-[#F5F5F5] dark:bg-[#1A1A1A]',
                 'hover:bg-purple-500/10 hover:text-purple-500',
                 'dark:hover:bg-purple-500/20 dark:hover:text-purple-500',
