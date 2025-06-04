@@ -84,20 +84,20 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
             transition={{ duration: 0.2 }}
           >
             <Dialog.Content className="bg-white dark:bg-[#1A1A1A] rounded-lg shadow-xl max-w-sm w-full mx-4 overflow-hidden">
-              <div className="p-4 space-y-3">
-                <h2 className="text-lg font-semibold text-[#111111] dark:text-white">Access Private Repositories</h2>
+              <div className="p-3 space-y-2.5"> {/* p-4 space-y-3 to p-3 space-y-2.5 */}
+                <h2 className="text-base font-semibold text-[#111111] dark:text-white">Access Private Repositories</h2> {/* text-lg to text-base */}
 
-                <p className="text-sm text-[#666666] dark:text-[#999999]">
+                <p className="text-xs text-[#666666] dark:text-[#999999]"> {/* text-sm to text-xs */}
                   To access private repositories, you need to connect your GitHub account by providing a personal access
                   token.
                 </p>
 
-                <div className="bg-[#F9F9F9] dark:bg-[#252525] p-4 rounded-lg space-y-3">
-                  <h3 className="text-base font-medium text-[#111111] dark:text-white">Connect with GitHub Token</h3>
+                <div className="bg-[#F9F9F9] dark:bg-[#252525] p-3 rounded-lg space-y-2.5"> {/* p-4 space-y-3 to p-3 space-y-2.5 */}
+                  <h3 className="text-sm font-medium text-[#111111] dark:text-white">Connect with GitHub Token</h3> {/* text-base to text-sm */}
 
-                  <form onSubmit={handleSubmit} className="space-y-3">
+                  <form onSubmit={handleSubmit} className="space-y-2.5"> {/* space-y-3 to space-y-2.5 */}
                     <div>
-                      <label className="block text-sm text-[#666666] dark:text-[#999999] mb-1">
+                      <label className="block text-xs text-[#666666] dark:text-[#999999] mb-0.5"> {/* text-sm mb-1 to text-xs mb-0.5 */}
                         GitHub Personal Access Token
                       </label>
                       <input
@@ -105,7 +105,7 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
                         value={token}
                         onChange={(e) => setToken(e.target.value)}
                         placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-                        className="w-full px-3 py-1.5 rounded-lg border border-[#E5E5E5] dark:border-[#333333] bg-white dark:bg-[#1A1A1A] text-[#111111] dark:text-white placeholder-[#999999] text-sm"
+                        className="w-full px-2.5 py-1 rounded-lg border border-[#E5E5E5] dark:border-[#333333] bg-white dark:bg-[#1A1A1A] text-[#111111] dark:text-white placeholder-[#999999] text-xs" // px-3 py-1.5 text-sm to px-2.5 py-1 text-xs
                       />
                       <div className="mt-1 text-xs text-[#666666] dark:text-[#999999]">
                         Get your token at{' '}
@@ -121,7 +121,7 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="block text-sm text-[#666666] dark:text-[#999999]">Token Type</label>
+                      <label className="block text-xs text-[#666666] dark:text-[#999999]">Token Type</label> {/* text-sm to text-xs */}
                       <div className="flex gap-4">
                         <label className="flex items-center gap-2">
                           <input
@@ -130,7 +130,7 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
                             onChange={() => setTokenType('classic')}
                             className="w-3.5 h-3.5 accent-purple-500"
                           />
-                          <span className="text-sm text-[#111111] dark:text-white">Classic</span>
+                          <span className="text-xs text-[#111111] dark:text-white">Classic</span> {/* text-sm to text-xs */}
                         </label>
                         <label className="flex items-center gap-2">
                           <input
@@ -139,7 +139,7 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
                             onChange={() => setTokenType('fine-grained')}
                             className="w-3.5 h-3.5 accent-purple-500"
                           />
-                          <span className="text-sm text-[#111111] dark:text-white">Fine-grained</span>
+                          <span className="text-xs text-[#111111] dark:text-white">Fine-grained</span> {/* text-sm to text-xs */}
                         </label>
                       </div>
                     </div>
@@ -147,16 +147,16 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                      className="w-full py-1.5 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-xs" // py-2 text-sm to py-1.5 text-xs
                     >
                       {isSubmitting ? 'Connecting...' : 'Connect to GitHub'}
                     </button>
                   </form>
                 </div>
 
-                <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg space-y-1.5">
-                  <h3 className="text-sm text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1.5">
-                    <span className="i-ph:warning-circle w-4 h-4" />
+                <div className="bg-amber-50 dark:bg-amber-900/20 p-2.5 rounded-lg space-y-1"> {/* p-3 space-y-1.5 to p-2.5 space-y-1 */}
+                  <h3 className="text-xs text-amber-800 dark:text-amber-300 font-medium flex items-center gap-1"> {/* text-sm gap-1.5 to text-xs gap-1 */}
+                    <span className="i-ph:warning-circle w-4 h-4" /> {/* Icon size fine */}
                     Accessing Private Repositories
                   </h3>
                   <p className="text-xs text-amber-700 dark:text-amber-400">
@@ -171,11 +171,11 @@ export function GitHubAuthDialog({ isOpen, onClose }: GitHubAuthDialogProps) {
                 </div>
               </div>
 
-              <div className="border-t border-[#E5E5E5] dark:border-[#333333] p-3 flex justify-end">
+              <div className="border-t border-[#E5E5E5] dark:border-[#333333] p-2.5 flex justify-end"> {/* p-3 to p-2.5 */}
                 <Dialog.Close asChild>
                   <button
                     onClick={onClose}
-                    className="px-4 py-1.5 bg-transparent bg-[#F5F5F5] hover:bg-[#E5E5E5] dark:bg-[#252525] dark:hover:bg-[#333333] rounded-lg text-[#111111] dark:text-white transition-colors text-sm"
+                    className="px-3 py-1 bg-transparent bg-[#F5F5F5] hover:bg-[#E5E5E5] dark:bg-[#252525] dark:hover:bg-[#333333] rounded-lg text-[#111111] dark:text-white transition-colors text-xs" // px-4 py-1.5 text-sm to px-3 py-1 text-xs
                   >
                     Close
                   </button>

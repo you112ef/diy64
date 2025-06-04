@@ -1,12 +1,11 @@
 .bolt-sidebar-menu {
   width: 21.25rem; /* 340px equivalent */
+  /* Ensure it doesn't get too wide on very large screens if that's a concern */
+  max-width: 100vw;
 
   /* Example media query for smaller screens (adjust breakpoint and width as needed) */
   @media (max-width: 768px) {
     width: 80vw;
     max-width: 18.75rem; /* 300px */
   }
-
-  /* Ensure it doesn't get too wide on very large screens if that's a concern */
-  max-width: 100vw;
 }

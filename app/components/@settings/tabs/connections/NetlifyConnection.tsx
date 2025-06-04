@@ -296,13 +296,13 @@ export default function NetlifyConnection() {
     }
 
     return (
-      <div className="mt-6">
+      <div className="mt-4"> {/* mt-6 to mt-4 */}
         <Collapsible open={isStatsOpen} onOpenChange={setIsStatsOpen}>
           <CollapsibleTrigger asChild>
-            <div className="flex items-center justify-between p-4 rounded-lg bg-bolt-elements-background dark:bg-bolt-elements-background-depth-2 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor hover:border-bolt-elements-borderColorActive/70 dark:hover:border-bolt-elements-borderColorActive/70 transition-all duration-200">
-              <div className="flex items-center gap-2">
-                <div className="i-ph:chart-bar w-4 h-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
-                <span className="text-sm font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-bolt-elements-background dark:bg-bolt-elements-background-depth-2 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor hover:border-bolt-elements-borderColorActive/70 dark:hover:border-bolt-elements-borderColorActive/70 transition-all duration-200"> {/* p-4 to p-3 */}
+              <div className="flex items-center gap-1.5"> {/* gap-2 to gap-1.5 */}
+                <div className="i-ph:chart-bar w-4 h-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* Icon size fine */}
+                <span className="text-xs font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* text-sm to text-xs */}
                   Netlify Stats
                 </span>
               </div>
@@ -315,50 +315,50 @@ export default function NetlifyConnection() {
             </div>
           </CollapsibleTrigger>
           <CollapsibleContent className="overflow-hidden">
-            <div className="space-y-4 mt-4">
-              <div className="flex flex-wrap items-center gap-4">
+            <div className="space-y-3 mt-3"> {/* space-y-4 mt-4 to space-y-3 mt-3 */}
+              <div className="flex flex-wrap items-center gap-3"> {/* gap-4 to gap-3 */}
                 <Badge
                   variant="outline"
-                  className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                  className="flex items-center gap-0.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5 */
                 >
-                  <BuildingLibraryIcon className="h-4 w-4 text-bolt-elements-item-contentAccent" />
+                  <BuildingLibraryIcon className="h-3 w-3 text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                   <span>{connection.stats.totalSites} Sites</span>
                 </Badge>
                 <Badge
                   variant="outline"
-                  className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                  className="flex items-center gap-0.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5 */
                 >
-                  <RocketLaunchIcon className="h-4 w-4 text-bolt-elements-item-contentAccent" />
+                  <RocketLaunchIcon className="h-3 w-3 text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                   <span>{deploymentCount} Deployments</span>
                 </Badge>
                 {lastUpdated && (
                   <Badge
                     variant="outline"
-                    className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                    className="flex items-center gap-0.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5 */
                   >
-                    <ClockIcon className="h-4 w-4 text-bolt-elements-item-contentAccent" />
+                    <ClockIcon className="h-3 w-3 text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                     <span>Updated {formatDistanceToNow(new Date(lastUpdated))} ago</span>
                   </Badge>
                 )}
               </div>
               {sites.length > 0 && (
-                <div className="mt-4 space-y-4">
-                  <div className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-sm font-medium flex items-center gap-2 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
-                        <BuildingLibraryIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                <div className="mt-3 space-y-3"> {/* mt-4 space-y-4 to mt-3 space-y-3 */}
+                  <div className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-3"> {/* p-4 to p-3 */}
+                    <div className="flex items-center justify-between mb-3"> {/* mb-4 to mb-3 */}
+                      <h4 className="text-xs font-medium flex items-center gap-1.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* text-sm gap-2 to text-xs gap-1.5 */}
+                        <BuildingLibraryIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                         Your Sites
                       </h4>
                       <Button
                         variant="outline"
-                        size="sm"
+                        size="sm" // Already sm, will inherit further scaling from Button component
                         onClick={() => fetchNetlifyStats(connection.token)}
                         disabled={fetchingStats}
-                        className="flex items-center gap-2 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary hover:bg-bolt-elements-item-backgroundActive/10"
+                        className="flex items-center gap-1.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary hover:bg-bolt-elements-item-backgroundActive/10" // gap-2 to gap-1.5
                       >
                         <ArrowPathIcon
                           className={classNames(
-                            'h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent',
+                            'h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent', // h-4 w-4 to h-3 w-3
                             { 'animate-spin': fetchingStats },
                           )}
                         />
@@ -370,7 +370,7 @@ export default function NetlifyConnection() {
                         <div
                           key={site.id}
                           className={classNames(
-                            'bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border rounded-lg p-4 transition-all',
+                              'bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border rounded-lg p-3 transition-all', // p-4 to p-3
                             activeSiteIndex === index
                               ? 'border-bolt-elements-item-contentAccent bg-bolt-elements-item-backgroundActive/10'
                               : 'border-bolt-elements-borderColor hover:border-bolt-elements-borderColorActive/70',
@@ -381,8 +381,8 @@ export default function NetlifyConnection() {
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <CloudIcon className="h-5 w-5 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
-                              <span className="font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+                                <CloudIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-5 w-5 to h-4 w-4 */}
+                                <span className="font-medium text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* default (sm) to text-xs */}
                                 {site.name}
                               </span>
                             </div>
@@ -392,23 +392,23 @@ export default function NetlifyConnection() {
                                 className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
                               >
                                 {site.published_deploy?.state === 'ready' ? (
-                                  <CheckCircleIcon className="h-4 w-4 text-green-500" />
+                                    <CheckCircleIcon className="h-3 w-3 text-green-500" /> /* h-4 w-4 to h-3 w-3 */
                                 ) : (
-                                  <XCircleIcon className="h-4 w-4 text-red-500" />
+                                    <XCircleIcon className="h-3 w-3 text-red-500" /> /* h-4 w-4 to h-3 w-3 */
                                 )}
-                                <span className="text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+                                  <span className="text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* default (sm) to text-xs */}
                                   {site.published_deploy?.state || 'Unknown'}
                                 </span>
                               </Badge>
                             </div>
                           </div>
 
-                          <div className="mt-3 flex items-center gap-2">
+                            <div className="mt-2 flex items-center gap-1.5"> {/* mt-3 to mt-2, gap-2 to gap-1.5 */}
                             <a
                               href={site.ssl_url || site.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm flex items-center gap-1 transition-colors text-bolt-elements-link-text hover:text-bolt-elements-link-textHover dark:text-white dark:hover:text-bolt-elements-link-textHover"
+                                className="text-xs flex items-center gap-0.5 transition-colors text-bolt-elements-link-text hover:text-bolt-elements-link-textHover dark:text-white dark:hover:text-bolt-elements-link-textHover" // text-sm to text-xs, gap-1 to gap-0.5
                               onClick={(e) => e.stopPropagation()}
                             >
                               <CloudIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
@@ -420,13 +420,13 @@ export default function NetlifyConnection() {
 
                           {activeSiteIndex === index && (
                             <>
-                              <div className="mt-4 pt-3 border-t border-bolt-elements-borderColor">
-                                <div className="flex items-center gap-2">
+                                <div className="mt-3 pt-2.5 border-t border-bolt-elements-borderColor"> {/* mt-4 pt-3 to mt-3 pt-2.5 */}
+                                  <div className="flex items-center gap-1.5"> {/* gap-2 to gap-1.5 */}
                                   {siteActions.map((action) => (
                                     <Button
                                       key={action.name}
                                       variant={action.variant || 'outline'}
-                                      size="sm"
+                                        size="sm" // Will inherit further scaling
                                       onClick={async (e) => {
                                         e.stopPropagation();
 
@@ -441,25 +441,25 @@ export default function NetlifyConnection() {
                                         setIsActionLoading(false);
                                       }}
                                       disabled={isActionLoading}
-                                      className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                                        className="flex items-center gap-0.5 text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5, text-sm to text-xs */
                                     >
-                                      <action.icon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                                        <action.icon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                                       {action.name}
                                     </Button>
                                   ))}
                                 </div>
                               </div>
                               {site.published_deploy && (
-                                <div className="mt-3 text-sm">
-                                  <div className="flex items-center gap-1">
-                                    <ClockIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                                  <div className="mt-2 text-xs"> {/* mt-3 text-sm to mt-2 text-xs */}
+                                    <div className="flex items-center gap-0.5"> {/* gap-1 to gap-0.5 */}
+                                      <ClockIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                                     <span className="text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary">
                                       Published {formatDistanceToNow(new Date(site.published_deploy.published_at))} ago
                                     </span>
                                   </div>
                                   {site.published_deploy.branch && (
-                                    <div className="flex items-center gap-1 mt-1">
-                                      <CodeBracketIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                                      <div className="flex items-center gap-0.5 mt-1"> {/* gap-1 to gap-0.5 */}
+                                        <CodeBracketIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                                       <span className="text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary">
                                         Branch: {site.published_deploy.branch}
                                       </span>
@@ -474,18 +474,18 @@ export default function NetlifyConnection() {
                     </div>
                   </div>
                   {activeSiteIndex !== -1 && deploys.length > 0 && (
-                    <div className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="text-sm font-medium flex items-center gap-2 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
-                          <BuildingLibraryIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                      <div className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-3"> {/* p-4 to p-3 */}
+                        <div className="flex items-center justify-between mb-2"> {/* mb-3 to mb-2 */}
+                          <h4 className="text-xs font-medium flex items-center gap-1.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* text-sm gap-2 to text-xs gap-1.5 */}
+                            <BuildingLibraryIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                           Recent Deployments
                         </h4>
                       </div>
-                      <div className="space-y-2">
+                        <div className="space-y-1.5"> {/* space-y-2 to space-y-1.5 */}
                         {deploys.map((deploy) => (
                           <div
                             key={deploy.id}
-                            className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-3"
+                              className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-2.5" /* p-3 to p-2.5 */
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
@@ -500,13 +500,13 @@ export default function NetlifyConnection() {
                                   className="flex items-center gap-1"
                                 >
                                   {deploy.state === 'ready' ? (
-                                    <CheckCircleIcon className="h-4 w-4 text-green-500" />
+                                      <CheckCircleIcon className="h-3 w-3 text-green-500" /> /* h-4 w-4 to h-3 w-3 */
                                   ) : deploy.state === 'error' ? (
-                                    <XCircleIcon className="h-4 w-4 text-red-500" />
+                                      <XCircleIcon className="h-3 w-3 text-red-500" /> /* h-4 w-4 to h-3 w-3 */
                                   ) : (
-                                    <BuildingLibraryIcon className="h-4 w-4 text-bolt-elements-item-contentAccent" />
+                                      <BuildingLibraryIcon className="h-3 w-3 text-bolt-elements-item-contentAccent" /> /* h-4 w-4 to h-3 w-3 */
                                   )}
-                                  <span className="text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+                                    <span className="text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* default (sm) to text-xs */}
                                     {deploy.state}
                                   </span>
                                 </Badge>
@@ -516,7 +516,7 @@ export default function NetlifyConnection() {
                               </span>
                             </div>
                             {deploy.branch && (
-                              <div className="mt-2 text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary flex items-center gap-1">
+                                <div className="mt-1.5 text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary flex items-center gap-1"> {/* mt-2 to mt-1.5 */}
                                 <CodeBracketIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
                                 <span className="text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary">
                                   Branch: {deploy.branch}
@@ -524,12 +524,12 @@ export default function NetlifyConnection() {
                               </div>
                             )}
                             {deploy.deploy_url && (
-                              <div className="mt-2 text-xs">
+                                <div className="mt-1.5 text-xs"> {/* mt-2 to mt-1.5 */}
                                 <a
                                   href={deploy.deploy_url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-1 transition-colors text-bolt-elements-link-text hover:text-bolt-elements-link-textHover dark:text-white dark:hover:text-bolt-elements-link-textHover"
+                                    className="flex items-center gap-0.5 transition-colors text-bolt-elements-link-text hover:text-bolt-elements-link-textHover dark:text-white dark:hover:text-bolt-elements-link-textHover" /* gap-1 to gap-0.5 */
                                   onClick={(e) => e.stopPropagation()}
                                 >
                                   <CloudIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
@@ -537,37 +537,37 @@ export default function NetlifyConnection() {
                                 </a>
                               </div>
                             )}
-                            <div className="flex items-center gap-2 mt-2">
+                              <div className="flex items-center gap-1.5 mt-1.5"> {/* gap-2 mt-2 to gap-1.5 mt-1.5 */}
                               <Button
                                 variant="outline"
-                                size="sm"
+                                  size="sm" // Will inherit further scaling
                                 onClick={() => handleDeploy(sites[activeSiteIndex].id, deploy.id, 'publish')}
                                 disabled={isActionLoading}
-                                className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                                  className="flex items-center gap-0.5 text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5 */
                               >
-                                <BuildingLibraryIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                                  <BuildingLibraryIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                                 Publish
                               </Button>
                               {deploy.state === 'ready' ? (
                                 <Button
                                   variant="outline"
-                                  size="sm"
+                                    size="sm" // Will inherit further scaling
                                   onClick={() => handleDeploy(sites[activeSiteIndex].id, deploy.id, 'lock')}
                                   disabled={isActionLoading}
-                                  className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                                    className="flex items-center gap-0.5 text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5 */
                                 >
-                                  <LockClosedIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                                    <LockClosedIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                                   Lock
                                 </Button>
                               ) : (
                                 <Button
                                   variant="outline"
-                                  size="sm"
+                                    size="sm" // Will inherit further scaling
                                   onClick={() => handleDeploy(sites[activeSiteIndex].id, deploy.id, 'unlock')}
                                   disabled={isActionLoading}
-                                  className="flex items-center gap-1 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"
+                                    className="flex items-center gap-0.5 text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary" /* gap-1 to gap-0.5 */
                                 >
-                                  <LockOpenIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                                    <LockOpenIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                                   Unlock
                                 </Button>
                               )}
@@ -578,18 +578,18 @@ export default function NetlifyConnection() {
                     </div>
                   )}
                   {activeSiteIndex !== -1 && builds.length > 0 && (
-                    <div className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="text-sm font-medium flex items-center gap-2 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
-                          <CodeBracketIcon className="h-4 w-4 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" />
+                      <div className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-3"> {/* p-4 to p-3 */}
+                        <div className="flex items-center justify-between mb-2"> {/* mb-3 to mb-2 */}
+                          <h4 className="text-xs font-medium flex items-center gap-1.5 text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* text-sm gap-2 to text-xs gap-1.5 */}
+                            <CodeBracketIcon className="h-3 w-3 text-bolt-elements-item-contentAccent dark:text-bolt-elements-item-contentAccent" /> {/* h-4 w-4 to h-3 w-3 */}
                           Recent Builds
                         </h4>
                       </div>
-                      <div className="space-y-2">
+                        <div className="space-y-1.5"> {/* space-y-2 to space-y-1.5 */}
                         {builds.map((build) => (
                           <div
                             key={build.id}
-                            className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-3"
+                              className="bg-bolt-elements-background dark:bg-bolt-elements-background-depth-1 border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg p-2.5" /* p-3 to p-2.5 */
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
@@ -600,13 +600,13 @@ export default function NetlifyConnection() {
                                   className="flex items-center gap-1"
                                 >
                                   {build.done && !build.error ? (
-                                    <CheckCircleIcon className="h-4 w-4" />
+                                      <CheckCircleIcon className="h-3 w-3" /> /* h-4 w-4 to h-3 w-3 */
                                   ) : build.error ? (
-                                    <XCircleIcon className="h-4 w-4" />
+                                      <XCircleIcon className="h-3 w-3" /> /* h-4 w-4 to h-3 w-3 */
                                   ) : (
-                                    <CodeBracketIcon className="h-4 w-4" />
+                                      <CodeBracketIcon className="h-3 w-3" /> /* h-4 w-4 to h-3 w-3 */
                                   )}
-                                  <span className="text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+                                    <span className="text-xs text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* default (sm) to text-xs */}
                                     {build.done ? (build.error ? 'Failed' : 'Completed') : 'In Progress'}
                                   </span>
                                 </Badge>
@@ -616,7 +616,7 @@ export default function NetlifyConnection() {
                               </span>
                             </div>
                             {build.error && (
-                              <div className="mt-2 text-xs text-bolt-elements-textDestructive dark:text-bolt-elements-textDestructive flex items-center gap-1">
+                                <div className="mt-1.5 text-xs text-bolt-elements-textDestructive dark:text-bolt-elements-textDestructive flex items-center gap-0.5"> {/* mt-2 gap-1 to mt-1.5 gap-0.5 */}
                                 <XCircleIcon className="h-3 w-3 text-bolt-elements-textDestructive dark:text-bolt-elements-textDestructive" />
                                 Error: {build.error}
                               </div>
@@ -636,20 +636,20 @@ export default function NetlifyConnection() {
   };
 
   return (
-    <div className="space-y-6 bg-bolt-elements-background dark:bg-bolt-elements-background border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg">
-      <div className="p-6">
+    <div className="space-y-4 bg-bolt-elements-background dark:bg-bolt-elements-background border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor rounded-lg"> {/* space-y-6 to space-y-4 */}
+      <div className="p-4"> {/* p-6 to p-4 */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="text-[#00AD9F]">
               <NetlifyLogo />
             </div>
-            <h2 className="text-lg font-medium text-bolt-elements-textPrimary">Netlify Connection</h2>
+            <h2 className="text-base font-medium text-bolt-elements-textPrimary">Netlify Connection</h2> {/* text-lg to text-base */}
           </div>
         </div>
 
         {!connection.user ? (
           <div className="mt-4">
-            <label className="block text-sm text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-2">
+            <label className="block text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-1.5"> {/* text-sm mb-2 to text-xs mb-1.5 */}
               API Token
             </label>
             <input
@@ -658,7 +658,7 @@ export default function NetlifyConnection() {
               onChange={(e) => setTokenInput(e.target.value)}
               placeholder="Enter your Netlify API token"
               className={classNames(
-                'w-full px-3 py-2 rounded-lg text-sm',
+                'w-full px-2.5 py-1.5 rounded-lg text-xs', // px-3 py-2 text-sm to px-2.5 py-1.5 text-xs
                 'bg-[#F8F8F8] dark:bg-[#1A1A1A]',
                 'border border-[#E5E5E5] dark:border-[#333333]',
                 'text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary',
@@ -671,10 +671,10 @@ export default function NetlifyConnection() {
                 href="https://app.netlify.com/user/applications#personal-access-tokens"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-bolt-elements-borderColorActive hover:underline inline-flex items-center gap-1"
+                className="text-bolt-elements-borderColorActive hover:underline inline-flex items-center gap-0.5" // gap-1 to gap-0.5
               >
                 Get your token
-                <div className="i-ph:arrow-square-out w-4 h-4" />
+                <div className="i-ph:arrow-square-out w-3 h-3" /> {/* w-4 h-4 to w-3 h-3 */}
               </a>
             </div>
             <div className="flex items-center justify-between mt-4">
@@ -682,7 +682,7 @@ export default function NetlifyConnection() {
                 onClick={handleConnect}
                 disabled={isConnecting || !tokenInput}
                 className={classNames(
-                  'px-4 py-2 rounded-lg text-sm flex items-center gap-2',
+                  'px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5', // px-4 py-2 text-sm to px-3 py-1.5 text-xs, gap-2 to gap-1.5
                   'bg-[#303030] text-white',
                   'hover:bg-[#5E41D0] hover:text-white',
                   'disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200',
@@ -696,7 +696,7 @@ export default function NetlifyConnection() {
                   </>
                 ) : (
                   <>
-                    <div className="i-ph:plug-charging w-4 h-4" />
+                    <div className="i-ph:plug-charging w-3 h-3" /> {/* w-4 h-4 to w-3 h-3 */}
                     Connect
                   </>
                 )}
@@ -704,21 +704,21 @@ export default function NetlifyConnection() {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col w-full gap-4 mt-4">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col w-full gap-3 mt-4"> {/* gap-4 to gap-3 */}
+            <div className="flex items-center gap-2"> {/* gap-3 to gap-2 */}
               <button
                 onClick={handleDisconnect}
                 className={classNames(
-                  'px-4 py-2 rounded-lg text-sm flex items-center gap-2',
+                  'px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5', // px-4 py-2 text-sm to px-3 py-1.5 text-xs, gap-2 to gap-1.5
                   'bg-red-500 text-white',
                   'hover:bg-red-600',
                 )}
               >
-                <div className="i-ph:plug w-4 h-4" />
+                <div className="i-ph:plug w-3 h-3" /> {/* w-4 h-4 to w-3 h-3 */}
                 Disconnect
               </button>
-              <span className="text-sm text-bolt-elements-textSecondary flex items-center gap-1">
-                <div className="i-ph:check-circle w-4 h-4 text-green-500" />
+              <span className="text-xs text-bolt-elements-textSecondary flex items-center gap-0.5"> {/* text-sm gap-1 to text-xs gap-0.5 */}
+                <div className="i-ph:check-circle w-3 h-3 text-green-500" /> {/* w-4 h-4 to w-3 h-3 */}
                 Connected to Netlify
               </span>
             </div>

@@ -812,14 +812,14 @@ export function EventLogsTab() {
             'transition-all duration-200',
           )}
         >
-          <span className="i-ph:download text-lg text-gray-500 dark:text-gray-400 group-hover:text-purple-500 transition-colors" />
+          <span className="i-ph:download text-base text-gray-500 dark:text-gray-400 group-hover:text-purple-500 transition-colors" /> {/* Icon size text-lg to text-base */}
           Export
         </button>
 
         <Dialog showCloseButton>
           <div className="p-6">
             <DialogTitle className="flex items-center gap-2">
-              <div className="i-ph:download w-5 h-5" />
+              <div className="i-ph:download w-4 h-4" /> {/* Icon size w-5 h-5 to w-4 h-4 */}
               Export Event Logs
             </DialogTitle>
 
@@ -829,7 +829,7 @@ export function EventLogsTab() {
                   key={format.id}
                   onClick={() => handleFormatClick(format.handler)}
                   className={classNames(
-                    'flex items-center gap-3 px-4 py-3 text-sm rounded-lg transition-colors w-full text-left',
+                    'flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors w-full text-left', // gap-3 to gap-2, px-4 py-3 to px-3 py-2
                     'bg-white dark:bg-[#0A0A0A]',
                     'border border-[#E5E5E5] dark:border-[#1A1A1A]',
                     'hover:bg-purple-50 dark:hover:bg-[#1a1a1a]',
@@ -837,7 +837,7 @@ export function EventLogsTab() {
                     'text-bolt-elements-textPrimary',
                   )}
                 >
-                  <div className={classNames(format.icon, 'w-5 h-5')} />
+                  <div className={classNames(format.icon, 'w-4 h-4')} /> {/* Icon size w-5 h-5 to w-4 h-4 */}
                   <div>
                     <div className="font-medium">{format.label}</div>
                     <div className="text-xs text-bolt-elements-textSecondary mt-0.5">
@@ -883,7 +883,7 @@ export function EventLogsTab() {
 
           <DropdownMenu.Portal>
             <DropdownMenu.Content
-              className="min-w-[200px] bg-white dark:bg-[#0A0A0A] rounded-lg shadow-lg py-1 z-[250] animate-in fade-in-0 zoom-in-95 border border-[#E5E5E5] dark:border-[#1A1A1A]"
+              className="w-[12.5rem] max-w-[calc(100vw-2rem)] bg-white dark:bg-[#0A0A0A] rounded-lg shadow-lg py-1 z-[250] animate-in fade-in-0 zoom-in-95 border border-[#E5E5E5] dark:border-[#1A1A1A]"
               sideOffset={5}
               align="start"
               side="bottom"
@@ -891,12 +891,12 @@ export function EventLogsTab() {
               {logLevelOptions.map((option) => (
                 <DropdownMenu.Item
                   key={option.value}
-                  className="group flex items-center px-4 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 cursor-pointer transition-colors"
+                  className="group flex items-center px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-purple-500/10 dark:hover:bg-purple-500/20 cursor-pointer transition-colors"
                   onClick={() => handleLevelFilterChange(option.value)}
                 >
-                  <div className="mr-3 flex h-5 w-5 items-center justify-center">
+                  <div className="mr-2 flex h-4 w-4 items-center justify-center">
                     <div
-                      className={classNames(option.icon, 'text-lg group-hover:text-purple-500 transition-colors')}
+                      className={classNames(option.icon, 'text-base group-hover:text-purple-500 transition-colors')}
                       style={{ color: option.color }}
                     />
                   </div>
@@ -950,7 +950,7 @@ export function EventLogsTab() {
               { 'animate-spin': isRefreshing },
             )}
           >
-            <span className="i-ph:arrows-clockwise text-lg text-gray-500 dark:text-gray-400 group-hover:text-purple-500 transition-colors" />
+            <span className="i-ph:arrows-clockwise text-base text-gray-500 dark:text-gray-400 group-hover:text-purple-500 transition-colors" />
             Refresh
           </button>
 
@@ -958,7 +958,7 @@ export function EventLogsTab() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <div className="relative">
           <input
             type="text"
@@ -966,7 +966,7 @@ export function EventLogsTab() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className={classNames(
-              'w-full px-4 py-2 pl-10 rounded-lg',
+              'w-full px-3 py-1.5 pl-8 rounded-lg',
               'bg-[#FAFAFA] dark:bg-[#0A0A0A]',
               'border border-[#E5E5E5] dark:border-[#1A1A1A]',
               'text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400',
@@ -975,7 +975,7 @@ export function EventLogsTab() {
             )}
           />
           <div className="absolute left-3 top-1/2 -translate-y-1/2">
-            <div className="i-ph:magnifying-glass text-lg text-gray-500 dark:text-gray-400" />
+            <div className="i-ph:magnifying-glass text-base text-gray-500 dark:text-gray-400" />
           </div>
         </div>
 
@@ -984,13 +984,13 @@ export function EventLogsTab() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className={classNames(
-              'flex flex-col items-center justify-center gap-4',
-              'rounded-lg p-8 text-center',
+              'flex flex-col items-center justify-center gap-3', // Changed gap
+              'rounded-lg p-6 text-center', // Changed padding
               'bg-[#FAFAFA] dark:bg-[#0A0A0A]',
               'border border-[#E5E5E5] dark:border-[#1A1A1A]',
             )}
           >
-            <span className="i-ph:clipboard-text text-4xl text-gray-400 dark:text-gray-600" />
+            <span className="i-ph:clipboard-text text-2xl text-gray-400 dark:text-gray-600" /> {/* Changed icon size */}
             <div className="flex flex-col gap-1">
               <h3 className="text-sm font-medium text-gray-900 dark:text-white">No Logs Found</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">Try adjusting your search or filters</p>
@@ -1012,4 +1012,4 @@ export function EventLogsTab() {
   );
 }
 
-[end of app/components/@settings/tabs/event-logs/EventLogsTab.tsx]
+// [end of app/components/@settings/tabs/event-logs/EventLogsTab.tsx] // This is the line to remove if duplicated by tool

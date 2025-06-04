@@ -540,22 +540,22 @@ export default function GitHubConnection() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
     >
-      <div className="p-6 space-y-6">
+      <div className="p-4 space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <GithubLogo />
-            <h3 className="text-base font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary">
+            <GithubLogo /> {/* Icon size is w-5 h-5, already fine based on previous similar changes */}
+            <h3 className="text-sm font-medium text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary"> {/* text-base to text-sm */}
               GitHub Connection
             </h3>
           </div>
         </div>
 
         {!connection.user && (
-          <div className="text-xs text-bolt-elements-textSecondary bg-bolt-elements-background-depth-1 dark:bg-bolt-elements-background-depth-1 p-3 rounded-lg mb-4">
-            <p className="flex items-center gap-1 mb-1">
-              <span className="i-ph:lightbulb w-3.5 h-3.5 text-bolt-elements-icon-success dark:text-bolt-elements-icon-success" />
+          <div className="text-xs text-bolt-elements-textSecondary bg-bolt-elements-background-depth-1 dark:bg-bolt-elements-background-depth-1 p-2.5 rounded-lg mb-3"> {/* p-3 to p-2.5, mb-4 to mb-3 */}
+            <p className="flex items-center gap-0.5 mb-1"> {/* gap-1 to gap-0.5 */}
+              <span className="i-ph:lightbulb w-3 h-3 text-bolt-elements-icon-success dark:text-bolt-elements-icon-success" /> {/* w-3.5 h-3.5 to w-3 h-3 */}
               <span className="font-medium">Tip:</span> You can also set the{' '}
-              <code className="px-1 py-0.5 bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 rounded">
+              <code className="px-1 py-0.25 bg-bolt-elements-background-depth-2 dark:bg-bolt-elements-background-depth-2 rounded"> {/* py-0.5 to py-0.25 */}
                 VITE_GITHUB_ACCESS_TOKEN
               </code>{' '}
               environment variable to connect automatically.
@@ -570,7 +570,7 @@ export default function GitHubConnection() {
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-2">
+            <label className="block text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-1.5"> {/* text-sm mb-2 to text-xs mb-1.5 */}
               Token Type
             </label>
             <select
@@ -582,7 +582,7 @@ export default function GitHubConnection() {
               }}
               disabled={isConnecting || !!connection.user}
               className={classNames(
-                'w-full px-3 py-2 rounded-lg text-sm',
+                'w-full px-2.5 py-1.5 rounded-lg text-xs', // px-3 py-2 text-sm to px-2.5 py-1.5 text-xs
                 'bg-bolt-elements-background-depth-1 dark:bg-bolt-elements-background-depth-1',
                 'border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor',
                 'text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary',
@@ -596,7 +596,7 @@ export default function GitHubConnection() {
           </div>
 
           <div>
-            <label className="block text-sm text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-2">
+            <label className="block text-xs text-bolt-elements-textSecondary dark:text-bolt-elements-textSecondary mb-1.5"> {/* text-sm mb-2 to text-xs mb-1.5 */}
               {connection.tokenType === 'classic' ? 'Personal Access Token' : 'Fine-grained Token'}
             </label>
             <input
@@ -608,7 +608,7 @@ export default function GitHubConnection() {
                 connection.tokenType === 'classic' ? 'personal access token' : 'fine-grained token'
               }`}
               className={classNames(
-                'w-full px-3 py-2 rounded-lg text-sm',
+                'w-full px-2.5 py-1.5 rounded-lg text-xs', // px-3 py-2 text-sm to px-2.5 py-1.5 text-xs
                 'bg-[#F8F8F8] dark:bg-[#1A1A1A]',
                 'border border-[#E5E5E5] dark:border-[#333333]',
                 'text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary',
@@ -621,12 +621,12 @@ export default function GitHubConnection() {
                 href={`https://github.com/settings/tokens${connection.tokenType === 'fine-grained' ? '/beta' : '/new'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-bolt-elements-borderColorActive hover:underline inline-flex items-center gap-1"
+              className="text-bolt-elements-borderColorActive hover:underline inline-flex items-center gap-0.5" // gap-1 to gap-0.5
               >
                 Get your token
-                <div className="i-ph:arrow-square-out w-4 h-4" />
+              <div className="i-ph:arrow-square-out w-3 h-3" /> {/* w-4 h-4 to w-3 h-3 */}
               </a>
-              <span className="mx-2">•</span>
+            <span className="mx-1.5">•</span> {/* mx-2 to mx-1.5 */}
               <span>
                 Required scopes:{' '}
                 {connection.tokenType === 'classic'

@@ -687,39 +687,39 @@ const ServiceStatusTab = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <motion.div
         className="space-y-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center justify-between gap-2 mt-8 mb-4">
+        <div className="flex items-center justify-between gap-2 mt-6 mb-3">
           <div className="flex items-center gap-2">
             <div
               className={classNames(
-                'w-8 h-8 flex items-center justify-center rounded-lg',
+                'w-7 h-7 flex items-center justify-center rounded-lg',
                 'bg-bolt-elements-background-depth-3',
                 'text-purple-500',
               )}
             >
-              <TbActivityHeartbeat className="w-5 h-5" />
+              <TbActivityHeartbeat className="w-4 h-4" />
             </div>
             <div>
-              <h4 className="text-md font-medium text-bolt-elements-textPrimary">Service Status</h4>
-              <p className="text-sm text-bolt-elements-textSecondary">
+              <h4 className="text-sm font-medium text-bolt-elements-textPrimary">Service Status</h4>
+              <p className="text-xs text-bolt-elements-textSecondary">
                 Monitor and test the operational status of cloud LLM providers
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-bolt-elements-textSecondary">
+            <span className="text-xs text-bolt-elements-textSecondary">
               Last updated: {lastRefresh.toLocaleTimeString()}
             </span>
             <button
               onClick={() => fetchAllStatuses()}
               className={classNames(
-                'px-3 py-1.5 rounded-lg text-sm',
+                'px-2.5 py-1 rounded-lg text-xs',
                 'bg-bolt-elements-background-depth-3 hover:bg-bolt-elements-background-depth-4',
                 'text-bolt-elements-textPrimary',
                 'transition-all duration-200',
@@ -735,14 +735,14 @@ const ServiceStatusTab = () => {
         </div>
 
         {/* API Key Test Section */}
-        <div className="p-4 bg-bolt-elements-background-depth-2 rounded-lg">
-          <h5 className="text-sm font-medium text-bolt-elements-textPrimary mb-2">Test API Key</h5>
+        <div className="p-3 bg-bolt-elements-background-depth-2 rounded-lg">
+          <h5 className="text-xs font-medium text-bolt-elements-textPrimary mb-2">Test API Key</h5>
           <div className="flex gap-2">
             <select
               value={testProvider}
               onChange={(e) => setTestProvider(e.target.value as ProviderName)}
               className={classNames(
-                'flex-1 px-3 py-1.5 rounded-lg text-sm max-w-[200px]',
+                'flex-1 px-2.5 py-1 rounded-lg text-xs max-w-[200px]',
                 'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
                 'text-bolt-elements-textPrimary',
                 'focus:outline-none focus:ring-2 focus:ring-purple-500/30',
@@ -761,7 +761,7 @@ const ServiceStatusTab = () => {
               onChange={(e) => setTestApiKey(e.target.value)}
               placeholder="Enter API key to test"
               className={classNames(
-                'flex-1 px-3 py-1.5 rounded-lg text-sm',
+                'flex-1 px-2.5 py-1 rounded-lg text-xs',
                 'bg-bolt-elements-background-depth-3 border border-bolt-elements-borderColor',
                 'text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary',
                 'focus:outline-none focus:ring-2 focus:ring-purple-500/30',
@@ -773,7 +773,7 @@ const ServiceStatusTab = () => {
               }
               disabled={!testProvider || !testApiKey || testingStatus === 'testing'}
               className={classNames(
-                'px-4 py-1.5 rounded-lg text-sm',
+                'px-3 py-1 rounded-lg text-xs',
                 'bg-purple-500 hover:bg-purple-600',
                 'text-white',
                 'transition-all duration-200',
@@ -800,7 +800,7 @@ const ServiceStatusTab = () => {
         {loading && serviceStatuses.length === 0 ? (
           <div className="text-center py-8 text-bolt-elements-textSecondary">Loading service statuses...</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {serviceStatuses.map((service, index) => (
               <motion.div
                 key={service.provider}
@@ -816,7 +816,7 @@ const ServiceStatusTab = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div
-                  className={classNames('block p-4', service.statusUrl ? 'cursor-pointer' : '')}
+                  className={classNames('block p-3', service.statusUrl ? 'cursor-pointer' : '')}
                   onClick={() => service.statusUrl && window.open(service.statusUrl, '_blank')}
                 >
                   <div className="flex items-center justify-between gap-4">
@@ -824,18 +824,18 @@ const ServiceStatusTab = () => {
                       {service.icon && (
                         <div
                           className={classNames(
-                            'w-8 h-8 flex items-center justify-center rounded-lg',
+                            'w-7 h-7 flex items-center justify-center rounded-lg',
                             'bg-bolt-elements-background-depth-3',
                             getStatusColor(service.status),
                           )}
                         >
                           {React.createElement(service.icon, {
-                            className: 'w-5 h-5',
+                            className: 'w-4 h-4',
                           })}
                         </div>
                       )}
                       <div>
-                        <h4 className="text-sm font-medium text-bolt-elements-textPrimary">{service.provider}</h4>
+                        <h4 className="text-xs font-medium text-bolt-elements-textPrimary">{service.provider}</h4>
                         <div className="space-y-1">
                           <p className="text-xs text-bolt-elements-textSecondary">
                             Last checked: {new Date(service.lastChecked).toLocaleTimeString()}
@@ -852,12 +852,13 @@ const ServiceStatusTab = () => {
                       </div>
                     </div>
                     <div className={classNames('flex items-center gap-2', getStatusColor(service.status))}>
-                      <span className="text-sm capitalize">{service.status}</span>
+                      <span className="text-xs capitalize">{service.status}</span>
+                      {/* Status icon size is already w-4 h-4 from getStatusIcon */}
                       {getStatusIcon(service.status)}
                     </div>
                   </div>
                   {service.incidents && service.incidents.length > 0 && (
-                    <div className="mt-2 border-t border-bolt-elements-borderColor pt-2">
+                    <div className="mt-1.5 border-t border-bolt-elements-borderColor pt-1.5">
                       <p className="text-xs font-medium text-bolt-elements-textSecondary mb-1">Recent Incidents:</p>
                       <ul className="text-xs text-bolt-elements-textTertiary space-y-1">
                         {service.incidents.map((incident, i) => (

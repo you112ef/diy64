@@ -84,7 +84,7 @@ export default function ServiceStatusTab() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="animate-spin i-ph:circle-notch w-8 h-8 text-purple-500" />
+        <div className="animate-spin i-ph:circle-notch w-7 h-7 text-purple-500" />
       </div>
     );
   }
@@ -92,39 +92,39 @@ export default function ServiceStatusTab() {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center h-full text-red-500 dark:text-red-400">
-        <div className="i-ph:warning w-8 h-8 mb-2" />
-        <p>{error}</p>
+        <div className="i-ph:warning w-7 h-7 mb-2" />
+        <p className="text-sm">{error}</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 gap-4">
+    <div className="space-y-4">
+      <div className="grid grid-cols-1 gap-3">
         {serviceStatuses.map((service) => (
           <div
             key={service.provider}
-            className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+            className="p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
           >
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{service.provider}</h3>
+              <h3 className="text-base font-semibold text-gray-900 dark:text-white">{service.provider}</h3>
               <div className={`flex items-center ${getStatusColor(service.status)}`}>
-                <div className={`${getStatusIcon(service.status)} w-5 h-5 mr-2`} />
+                <div className={`${getStatusIcon(service.status)} w-4 h-4 mr-1.5`} />
                 <span className="capitalize">{service.status}</span>
               </div>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-2">{service.message}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{service.message}</p>
             {service.incidents && service.incidents.length > 0 && (
-              <div className="mt-2">
-                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Recent Incidents:</h4>
-                <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <div className="mt-1.5">
+                <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Recent Incidents:</h4>
+                <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
                   {service.incidents.map((incident, index) => (
                     <li key={index}>{incident}</li>
                   ))}
                 </ul>
               </div>
             )}
-            <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+            <div className="mt-1.5 text-xs text-gray-500 dark:text-gray-400">
               Last checked: {new Date(service.lastChecked).toLocaleString()}
             </div>
           </div>
